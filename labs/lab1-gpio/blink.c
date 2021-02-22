@@ -1,6 +1,5 @@
 /*
- * **    blink.c -    blink gpiochip0 line 3 with delay given by either
- * **                 the command line or the default (NSPERIOD)
+ * **    blink.c -    blink with 1s delay 
  * */
 
 #include <stdio.h>
