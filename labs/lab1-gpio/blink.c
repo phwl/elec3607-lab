@@ -16,9 +16,8 @@ main(int argc, char *argv[])
         struct gpiod_line *output_line;
         int line_value;
 
-        /* open /dev/gpiochip0 */
+        /* open chip and get line */
         output_chip = gpiod_chip_open_by_number(GPIOCHIP);
-
         output_line = gpiod_chip_get_line(output_chip, GPIOLINE);
 
         /* config as output and set a description */
