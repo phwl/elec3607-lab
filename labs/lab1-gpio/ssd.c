@@ -14,7 +14,7 @@
 #define	IN_GPIOCHIP		2
 #define	IN_GPIOLINE		8
 
-#define	NELTS(x)	(sizeof(x) / sizeof(x[0]))
+#define	NELTS(x)	(sizeof(x) / sizeof(x[0]))  // calculate number of elements in x
 #define	SEGMENTS	NELTS(gpiossd)
 
 static int	gpiossd[] = { 2, 13, 12, 4, 5, 15, 31 };
