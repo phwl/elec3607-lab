@@ -1,1 +1,1 @@
-# elec3607
+# Materials for ELEC3607 Embedded Systems
