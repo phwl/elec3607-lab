@@ -1,4 +1,4 @@
-TARGETS=	ssd blink
+TARGETS=	ssd blink PHWL-GPIO-00A0.dtbo
 all:	$(TARGETS)
 
 ssd:	ssd.o
