@@ -29,14 +29,15 @@
                   pinctrl_test: PHWL_GPIO_Pins {
 			pinctrl-single,pins = <
 
-				0x180 0x07  /* P9_26 60 OUTPUT MODE7 - The LED Output */
-				0x184 0x07  /* P9_24 60 OUTPUT MODE7 - The LED Output */
-				0x150 0x07  /* P9_22 60 OUTPUT MODE7 - The LED Output */
-				0x178 0x07  /* P9_20 60 OUTPUT MODE7 - The LED Output */
-				0x17c 0x07  /* P9_19 60 OUTPUT MODE7 - The LED Output */
-				0x158 0x07  /* P9_18 60 OUTPUT MODE7 - The LED Output */
-				0x15c 0x07  /* P9_17 60 OUTPUT MODE7 - The LED Output */
-				0x074 0x07  /* P9_13 60 OUTPUT MODE7 - The LED Output */
+				0x180 0x07  /* P9_26 OUT */
+				0x184 0x07  /* P9_24 OUT */
+				0x150 0x07  /* P9_22 OUT */
+				0x178 0x07  /* P9_20 OUT */
+				0x17c 0x07  /* P9_19 OUT */
+				0x158 0x07  /* P9_18 OUT */
+				0x15c 0x07  /* P9_17 OUT */
+				0x074 0x07  /* P9_13 OUT */
+				0x0a8 0x37  /* P8_43 PULLUP IN */
                        
                                /* OUTPUT  GPIO(mode7) 0x07 pulldown, 0x17 pullup, 0x?f no pullup/down */
 			       /* INPUT   GPIO(mode7) 0x27 pulldown, 0x37 pullup, 0x?f no pullup/down */

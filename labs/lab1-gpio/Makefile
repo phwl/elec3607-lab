@@ -12,6 +12,7 @@ PHWL-GPIO-00A0.dtbo:	PHWL-GPIO.dts
 
 install:	PHWL-GPIO-00A0.dtbo
 	sudo cp PHWL-GPIO-00A0.dtbo /lib/firmware
+	sudo cp uEnv.txt /boot
 
 clean:	
 	-rm -f *.o *.dtbo ssd blink
