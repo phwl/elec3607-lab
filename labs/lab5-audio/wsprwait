@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+
+set AUDIODEV=hw:1
+
+DECODER=wsprcan/k9an-wsprd 
+TMPOUT='_wsprd.out'
+
+decode () {
+	date
+	echo "Run decode here"
+	sleep 110
+}
+
+while true
+do
+	sec=$(date +'%S')
+	min=$(date +'%M')
+	# wait for an even minute
+	if (("10#$min" % 2 == 0 && "10#$sec" == 0 )); then
+		echo -n "Executing wspr_decode "
+		decode
+	elif ((10#$sec < 49)); then
+		sleep 10
+	fi
+done
