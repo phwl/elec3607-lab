@@ -1,18 +1,29 @@
-TARGETS=	ssd blink PHWL-GPIO-00A0.dtbo
-all:	$(TARGETS)
+CFLAGS = -Wall -g `pkg-config --cflags gtk+-3.0` -lm -lpthread
+LDFLAGS = `pkg-config --libs gtk+-3.0` -lgpiod -lpthread
+DISPLAY = gpio_ssd.o
 
-ssd:	ssd.o
-	gcc -o ssd ssd.c -lgpiod
+all: gpio_blink gpio_count 
 
-blink:	blink.o
-	gcc -o blink blink.c -lgpiod
+gpio_count:	gpio_count.o $(DISPLAY)
+	$(CC) -o $@ $< $(DISPLAY) $(LDFLAGS)
 
-PHWL-GPIO-00A0.dtbo:	PHWL-GPIO.dts
-	dtc -O dtb -o PHWL-GPIO-00A0.dtbo -b 0 -@ PHWL-GPIO.dts
+gpio_blink:	gpio_blink.o $(DISPLAY)
+	$(CC) -o $@ $< $(DISPLAY)$(SCFLAGS) $(LDFLAGS)
 
-install:	PHWL-GPIO-00A0.dtbo
-	sudo cp PHWL-GPIO-00A0.dtbo /lib/firmware
-	sudo cp uEnv.txt /boot
+copyto:
+	scp -P 10022 -r ../lab1 elec3607@localhost:lab1/
 
-clean:	
-	-rm -f *.o *.dtbo ssd blink
+copyfrom:
+	scp -P 10022 -r elec3607@localhost:lab1/'*.c' .
+
+ssh:
+	ssh -Y elec3607@localhost -p 10022
+
+# Define a pattern rule that compiles every .c file into a .o file
+%.o : %.c
+		$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+clean:
+	rm -f *~
+	rm -f *.o
+	rm -rf ssd ssd.dSYM gpio_blink gpio_count lab1 gpio_ssd
