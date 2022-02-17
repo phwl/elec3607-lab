@@ -8,7 +8,7 @@ gpio_count:	gpio_count.o $(DISPLAY)
 	$(CC) -o $@ $< $(DISPLAY) $(LDFLAGS)
 
 gpio_blink:	gpio_blink.o $(DISPLAY)
-	$(CC) -o $@ $< $(DISPLAY)$(SCFLAGS) $(LDFLAGS)
+	$(CC) -o $@ $< $(DISPLAY) $(LDFLAGS)
 
 copyto:
 	scp -P 10022 -r ../lab1 elec3607@localhost:lab1/
