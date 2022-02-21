@@ -23,6 +23,11 @@ gpio_init() {
 
     /* open /dev/gpiochip0 */
     output_chip = XXX(0);
+    if (output_chip == NULL)
+    {
+        perror("gpiod_chip_open_by_number(0)");
+        exit(1);
+    }
 
     /* work on the pins specified in the pins array */
     for (i = 0; i < LINES; i++)
