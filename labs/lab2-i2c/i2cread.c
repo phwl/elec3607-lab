@@ -21,7 +21,7 @@ int i2c_read(unsigned char reg)
 {
 	if (ioctl(i2c_file, I2C_SLAVE, SI5351_ADDR) < 0) 
     {
-        perror(i2c_file);
+        perror(I2C_FNAME);
 		exit(1);
     }
 
