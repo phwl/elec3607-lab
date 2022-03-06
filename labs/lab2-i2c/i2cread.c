@@ -20,7 +20,10 @@ void i2c_init()
 int i2c_read(unsigned char reg)
 {
 	if (ioctl(i2c_file, I2C_SLAVE, SI5351_ADDR) < 0) 
+    {
+        perror(i2c_file);
 		exit(1);
+    }
 
 	int res;
 
