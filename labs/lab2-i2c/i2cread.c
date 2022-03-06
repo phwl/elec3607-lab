@@ -14,7 +14,10 @@ void i2c_init()
 {
 	i2c_file = open(I2C_FNAME, O_RDWR);
 	if (i2c_file < 0)
+    {
+        perror(I2C_FNAME);
 		exit(1);
+    }
 }
 
 int i2c_read(unsigned char reg)
