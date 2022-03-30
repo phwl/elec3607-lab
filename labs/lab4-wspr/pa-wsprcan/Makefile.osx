@@ -1,8 +1,12 @@
-CC=gcc
+CC=clang
 
-CFLAGS= -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
-LDFLAGS = -L/usr/local/lib 
-LIBS = -lfftw3 -lm 
+FFLAGS = -O2 -Wall -Wno-conversion
+CFLAGS= -I/opt/local/include -Wall -O3 -ffast-math -Wno-missing-braces
+LDFLAGS = -L/opt/local/lib 
+LIBS = -lfftw3 -lm
+
+DEPS = fano.h wsprd_utils.h
+OBJ = wsprd.o wsprd_utils.o fano.o tab.o nhash.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -20,4 +24,4 @@ k9an-wsprd: $(OBJS3)
 	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS) $(LIBS)
 
 clean:
-	-rm *.o k9an-wsprd wsprsim
+	rm *.o k9an-wsprd wsprsim
