@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DIR=tmp3607
+
+ssh -p 10022 elec3607@localhost "(rm -rf $DIR; mkdir $DIR)"
+scp -P 10022 $1 m2-targetprog elec3607@localhost:$DIR
+ssh -p 10022 elec3607@localhost "(cd $DIR; bash m2-targetprog $1)"

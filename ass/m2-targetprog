@@ -1,0 +1,5 @@
+#!/bin/bash
+tar xzvf $1
+rm -rf $1
+cd `basename $1 .tgz`
+make
