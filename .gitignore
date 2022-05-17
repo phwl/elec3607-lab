@@ -1,5 +1,8 @@
 # Prerequisites
 *.d
+*.qcow2
+initrd.img*
+vmlinuxz*
 
 # Object files
 *.o
