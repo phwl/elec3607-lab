@@ -10,4 +10,3 @@ RUN apt-get update && apt-get install -y \
     faketime
 
 RUN adduser root pulse-access
-COPY entrypoint.sh /usr/bin/entrypoint.sh
