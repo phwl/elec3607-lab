@@ -1,0 +1,13 @@
+services:
+  milestone-eval:
+    build: .
+    image: elec3607/assignment-milestone-2:v1
+    # We do not want to recreate the container or have multiple instances of it running ever
+    container_name: elec3607-assignment-milestone-2
+    volumes:
+      # Mount working folder
+      - ./data:/home/workspace/data
+      - ./soln:/home/workspace/soln
+    entrypoint: /home/workspace/data/entrypoint.sh
+    # stdin_open: true
+    # tty: true
