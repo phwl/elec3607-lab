@@ -44,7 +44,7 @@ function get_results() {
         cd $filename
         sox $in_file -c 1 -t wav -r 12000 -b 16 mono.wav
         cp $src_path/k9an-wsprd mywsprd
-        timeout $MAX_TIME faketime "00:02:00" ./mywsprd mono.wav
+        paplay mono.wav & timeout $MAX_TIME faketime "00:02:00" ./mywsprd
         mv ALL_WSPR.* "$result_path/$filename-ALL_WSPR.txt"
         # mv hashtable.txt "$result_path/$filename-hashtable.txt"
         cd $output_path
