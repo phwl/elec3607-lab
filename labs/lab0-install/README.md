@@ -123,3 +123,4 @@ update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-2712
     - If you are not familiar with a Linux editor, I recommend learning either
         - Nano <https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>
         - or Vim (which is more powerful but more complicated): <https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim>
+    prior to next week.
