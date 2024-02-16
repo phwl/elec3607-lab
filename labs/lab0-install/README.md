@@ -117,7 +117,8 @@ update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-v8
 update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-2712
 ```
 
-4. Linux Stuff to Learn
+4. Linux References and Things to Learn
+    - Command line cheat sheet <https://bootlin.com/doc/legacy/command-line/command_memento.pdf>
     - Comprehensive help for Linux is available here:
 ![](help.jpeg)
     - If you have not used Linux before, read this tutorial: <https://www.linuxjournal.com/content/linux-command-line-interface-introduction-guide>
