@@ -121,8 +121,6 @@ update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-2712
     - Command line cheat sheet <https://bootlin.com/doc/legacy/command-line/command_memento.pdf>
     - Comprehensive help for Linux is available here:
 ![](help.jpeg)
-    - If you have not used Linux before, read this tutorial: <https://www.linuxjournal.com/content/linux-command-line-interface-introduction-guide>
-    - Before next week, if you are not familiar with a Linux editor I recommend learning either
-        - Nano <https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>
-        - or Vim (which is more powerful but more complicated): <https://www.linuxfoundation.org/blog/blog/classic-sysadmin-vim-101-a-beginners-guide-to-vim>
+    - If you have not used Linux before, read this tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners>
+    - Before next week, if you are not familiar with a Linux editor I recommend learning Vim: <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>
     
