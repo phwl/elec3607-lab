@@ -1,6 +1,0 @@
-(sym_lib_table
-  (lib (name "pwr_BeagleBone")(type "Legacy")(uri "${KIPRJMOD}/pwr_BeagleBone.lib")(options "")(descr ""))
-  (lib (name "elec3607sdr-rescue")(type "Legacy")(uri "/Users/phwl/Dropbox (Sydney Uni)/doc/teaching/elec3607/kicad/elec3607sdr/elec3607sdr-rescue.lib")(options "")(descr "")(disabled))
-  (lib (name "phwllib")(type "Legacy")(uri "/Users/phwl/projects/kicad/phwl-symbols/phwllib.lib")(options "")(descr "")(disabled))
-  (lib (name "bbb-rescue")(type "Legacy")(uri "${KIPRJMOD}/bbb-rescue.lib")(options "")(descr ""))
-)
