@@ -6,6 +6,26 @@ ways.
 technique to perform input and output via GPIO. 
     2. By directly controlling the registers on the microcontroller, this gives the highest performance and flexibility but is device-dependent. 
 
+To start, you should download all the lab materials for this course. With your 
+RPi connected to the internet, use the following command:
+```bash
+elec3607@raspberrypi:~ $ git clone https://github.com/phwl/elec3607-lab.git
+Cloning into 'elec3607-lab'...
+remote: Enumerating objects: 594, done.
+remote: Counting objects: 100% (223/223), done.
+remote: Compressing objects: 100% (165/165), done.
+remote: Total 594 (delta 84), reused 185 (delta 51), pack-reused 371
+Receiving objects: 100% (594/594), 53.54 MiB | 7.62 MiB/s, done.
+Resolving deltas: 100% (230/230), done.
+```
+This will create the directory ```elec3607-lab```. To go to the directory
+for Lab 1:
+```bash
+elec3607@raspberrypi:~ $ cd elec3607-lab/labs/lab1-gpio/
+elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ls
+libgpiod_blink.c  Makefile  mmap_blink.c  README.md
+```
+
 ## 1. libgpiod (30%)
 First install the libgpiod library using the ```apt``` command. This needs
 to be run as a superuser via ```sudo``` since the library is installed in 
@@ -40,7 +60,7 @@ together with an explanation of the changes that you needed to make.
 
 It is compiled and executed as follows:
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ make
+elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ make libgpiod_blink
 cc -c -Wall -g   libgpiod_blink.c -o libgpiod_blink.o
 cc -o libgpiod_blink libgpiod_blink.o -lgpiod 
 elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ./libgpiod_blink

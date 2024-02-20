@@ -51,6 +51,7 @@ gpio_writer() {
         for (int j = 0; j < LINES; j++) {
             XXX;	// write v to line j
         }
+		usleep(USPERIOD);
     }
 }
 
