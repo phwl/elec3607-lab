@@ -3,8 +3,8 @@
 In this lab you will learn how to manipulate GPIO output in two different
 ways.
 
-    * Using ```libgpiod```, this provides a hardware independent technique to perform input and output via GPIO (see [the manual](./libgpiod-ref.pdf)). 
-    * By directly controlling the registers on the microcontroller, this gives the highest performance and flexibility but is device-dependent. 
+1. Using ```libgpiod```, this provides a hardware independent technique to perform input and output via GPIO (see [the manual](./libgpiod-ref.pdf)). 
+1. By directly controlling the registers on the microcontroller, this gives the highest performance and flexibility but is device-dependent. 
 
 To start, you should download all the lab materials for this course. With your 
 RPi connected to the internet, use the following command:
