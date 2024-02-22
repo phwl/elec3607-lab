@@ -15,11 +15,11 @@ sudo apt-get install libi2c-dev
 The commands below show all the i2c devices and that the Si5351 at address 0x60 is responding to the probe on I2C2 (i2c chip 2):
 
 ```bash
-debian@beaglebone:~$ i2cdetect -l
+elec3607@raspberrypi:~ $ i2cdetect -l
 i2c-1	i2c       	OMAP I2C adapter                	I2C adapter
 i2c-2	i2c       	OMAP I2C adapter                	I2C adapter
 i2c-0	i2c       	OMAP I2C adapter                	I2C adapter
-debian@beaglebone:~$ i2cdetect -y -r 2
+elec3607@raspberrypi:~ $ i2cdetect -y -r 2
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -126,8 +126,8 @@ main()
 
 It can be compiled and executed as follows:
 
-debian@beaglebone:~$ gcc -o si5351 si5351.c -li2c
-debian@beaglebone:~$ ./si5351 
+elec3607@raspberrypi:~ $ gcc -o si5351 si5351.c -li2c
+elec3607@raspberrypi:~ $ ./si5351 
 r dev(0x60) reg(0x0)=0x11
 
 1.3. Programming the Clock Generator
@@ -412,8 +412,8 @@ Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q)
 
 Update the lab files as below.
 
-debian@beaglebone:~$ cd elec3607-labquestions/
-debian@beaglebone:~/elec3607-labquestions$ git pull
+elec3607@raspberrypi:~ $ cd elec3607-labquestions/
+elec3607@raspberrypi:~ $ git pull
 remote: Enumerating objects: 18, done.
 remote: Counting objects: 100% (18/18), done.
 remote: Compressing objects: 100% (12/12), done.
@@ -439,14 +439,14 @@ Fast-forward
  create mode 100644 labs/lab3-i2c/Makefile
  create mode 100755 labs/lab3-i2c/Si5351A-RevB-Registers.h
  create mode 100644 labs/lab3-i2c/si5351.c
-debian@beaglebone:~/elec3607-labquestions$ cd labs/lab3-i2c/
-debian@beaglebone:~/elec3607-labquestions/labs/lab3-i2c$
+elec3607@raspberrypi:~ $ cd labs/lab3-i2c/
+elec3607@raspberrypi:~ $
 
 ### Part 1 - I2C Interface (30%)
 
 Connect up your BBG to the Si5351. Verify that you can obtain the following output.
 
-debian@beaglebone:~$ i2cdetect -y -r 2
+elec3607@raspberrypi:~ $ i2cdetect -y -r 2
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
