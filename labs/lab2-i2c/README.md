@@ -14,6 +14,7 @@ sudo apt-get install libi2c-dev
 
 The commands below show all the i2c devices and that the Si5351 at address 0x60 is responding to the probe on I2C2 (i2c chip 2):
 
+```bash
 debian@beaglebone:~$ i2cdetect -l
 i2c-1	i2c       	OMAP I2C adapter                	I2C adapter
 i2c-2	i2c       	OMAP I2C adapter                	I2C adapter
@@ -28,6 +29,7 @@ debian@beaglebone:~$ i2cdetect -y -r 2
 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 70: -- -- -- -- -- -- -- --                         
+```
 
 Here is part of the i2c transaction for i2cdetect -y -r 2 0x60 0x60.
 1.2. Linux userspace driver
