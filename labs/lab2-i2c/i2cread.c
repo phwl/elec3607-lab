@@ -5,7 +5,7 @@
 #include <linux/i2c-dev.h>
 #include <i2c/smbus.h>
 
-#define	I2C_FNAME	"/dev/i2c-0"
+#define	I2C_FNAME	"/dev/i2c-1"
 #define	SI5351_ADDR	0x60
 
 int	i2c_file;
