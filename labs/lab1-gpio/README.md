@@ -66,13 +66,13 @@ cc -o libgpiod_blink libgpiod_blink.o -lgpiod
 elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ./libgpiod_blink
 ```
 
-## 2. mmap (40%)
+## 2. mmap (50 MHz) (40%)
 The code in ```mmap_blink.c``` is similar to ```libgpiod_blink.c``` except
 that it directly manipulates registers. Again, there are parts missing to
 the program marked as ```XXX```. Fill them in and create a version that
 produces a square wave at 50MHz +/- 20%. Make an oscilloscope screen shot of this version and write an explanation of the changes that you needed to make.
 
-## 3. mmap (30%)
+## 3. mmap (highest speed) (30%)
 Modify the mmap version to produce the highest clock frequency square wave,
 capture a screen shot and record the shortest period achieved. Try to get the best oscilloscope trace of the
 output. If it doesn't look like a square wave, explain why.
