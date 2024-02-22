@@ -15,7 +15,7 @@ i2c-1	i2c       	bcm2835 (i2c@7e804000)          	I2C adapter
 i2c-20	i2c       	fef04500.i2c                    	I2C adapter
 i2c-21	i2c       	fef09500.i2c                    	I2C adapter
 ```
-This tells us that the i2c-1 device is found (I think the part that says ```bcm2835 (i2c@7e804000``` is not accurate).
+This tells us that the i2c-1 device is found (the part that says ```bcm2835 (i2c@7e804000)``` doesn't appear to be accurate).
 
 
 Now scan i2c bus 1 for any i2c devices:
@@ -38,33 +38,12 @@ This tells us that the only device that responded was the one at address 0x60 (w
 
 ### I2C Interface to Si5351
 
-The i2c interface is simple, ensure that the SDA and SCL lines of the Si5351 are connected to an appropriate port on the RPi. In the example below, I used /dev/i2c-1.
+The i2c interface is simple. First study the SDR board and connect the power, SDA and SCL lines of the from the RPi to the appropriate port on the SDR board. 
 
-Then make sure all the software required is installed on the BBG.
+Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
 
-sudo apt update
-sudo apt-get install libi2c-dev
+![](rpi-i2c.png)
 
-The commands below show all the i2c devices and that the Si5351 at address 0x60 is responding to the probe on I2C2 (i2c chip 2):
-
-```bash
-elec3607@raspberrypi:~ $ i2cdetect -l
-i2c-1	i2c       	OMAP I2C adapter                	I2C adapter
-i2c-2	i2c       	OMAP I2C adapter                	I2C adapter
-i2c-0	i2c       	OMAP I2C adapter                	I2C adapter
-elec3607@raspberrypi:~ $ i2cdetect -y -r 2
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-70: -- -- -- -- -- -- -- --                         
-```
-
-Here is part of the i2c transaction for i2cdetect -y -r 2 0x60 0x60.
 1.2. Linux userspace driver
 
 There are several ways that this interface can be made. We are going to create a Linux i2c-dev userspace driver, which is the most straightforward. The following program, derived from the Linux Kernel userspace driver documentation
