@@ -3,9 +3,42 @@
 This lab involves testing the Si5351 (which has an i2c interface). 
 
 ## 1. Introduction
+### Raspberry Pi Configuration
+First you need to enable the RPi i2c port. You do this by running
+```raspi-config```, select ```Interface Options``` and then 
+select ```I2C```. This loads the i2c driver into the kernel.
+
+To check that worked, try:
+```bash
+elec3607@raspberrypi:~ $ i2cdetect -l
+i2c-1	i2c       	bcm2835 (i2c@7e804000)          	I2C adapter
+i2c-20	i2c       	fef04500.i2c                    	I2C adapter
+i2c-21	i2c       	fef09500.i2c                    	I2C adapter
+```
+This tells us that the i2c-1 device is found (I think the part that says ```bcm2835 (i2c@7e804000``` is not accurate).
+
+
+Now scan i2c bus 1 for any i2c devices:
+```bash
+elec3607@raspberrypi:~ $ i2cdetect 1
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-1.
+I will probe address range 0x08-0x77.
+Continue? [Y/n] 
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+```
+This tells us that the only device that responded was the one at address 0x60 (which happens to be the si5351 chip).
+
 ### I2C Interface to Si5351
 
-The i2c interface is simple, ensure that the SDA and SCL lines of the Si5351 are connected to an appropriate port on the RPi. In the example below, I used /dev/i2c-2.
+The i2c interface is simple, ensure that the SDA and SCL lines of the Si5351 are connected to an appropriate port on the RPi. In the example below, I used /dev/i2c-1.
 
 Then make sure all the software required is installed on the BBG.
 
