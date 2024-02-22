@@ -3,7 +3,7 @@
 This lab involves testing the Si5351 (which has an i2c interface). 
 
 ## 1. Introduction
-### Raspberry Pi Configuration
+### 1.1 Raspberry Pi Configuration
 First you need to enable the RPi i2c port. You do this by running
 ```raspi-config```, select ```Interface Options``` and then 
 select ```I2C```. This loads the i2c driver into the kernel.
@@ -36,7 +36,7 @@ Continue? [Y/n]
 ```
 This tells us that the only device that responded was the one at address 0x60 (which happens to be the si5351 chip).
 
-### I2C Interface to Si5351
+### 1.2 I2C Interface to Si5351
 
 The i2c interface is simple. First study the SDR board and connect the power, SDA and SCL lines of the from the RPi to the appropriate port on the SDR board. 
 
@@ -44,56 +44,35 @@ Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
 
 ![](rpi-i2c.png)
 
-1.2. Linux userspace driver
+### 1.3 Linux userspace driver
+
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ sudo apt install libi2c-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libraspberrypi0
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  libi2c-dev
+0 upgraded, 1 newly installed, 0 to remove and 73 not upgraded.
+Need to get 11.6 kB of archives.
+After this operation, 35.8 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main arm64 libi2c-dev arm64 4.3-2+b3 [11.6 kB]
+Fetched 11.6 kB in 1s (11.9 kB/s)    
+Selecting previously unselected package libi2c-dev:arm64.
+(Reading database ... 145281 files and directories currently installed.)
+Preparing to unpack .../libi2c-dev_4.3-2+b3_arm64.deb ...
+Unpacking libi2c-dev:arm64 (4.3-2+b3) ...
+Setting up libi2c-dev:arm64 (4.3-2+b3) ...
+```
 
 There are several ways that this interface can be made. We are going to create a Linux i2c-dev userspace driver, which is the most straightforward. The following program, derived from the Linux Kernel userspace driver documentation
 
-Links to an external site. reads and prints register 0 of device /dev/i2c-2, address 0x60, i.e. register 0 of the Si5351. Note that the reason we need to specify address 0x60 is that there could be multiple devices connected to a single i2c chip.
+The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-1, address 0x60, i.e. register 0 of the Si5351. Note there could be multiple devices connected to a single i2c chip.
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-
-	
-
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -101,7 +80,7 @@ Links to an external site. reads and prints register 0 of device /dev/i2c-2, add
 #include <linux/i2c-dev.h>
 #include <i2c/smbus.h>
 
-#define	I2C_FNAME	"/dev/i2c-2"
+#define	I2C_FNAME	"/dev/i2c-1"
 #define	SI5351_ADDR	0x60
 
 int	i2c_file;
@@ -135,14 +114,18 @@ main()
 	i2c_init();
 	i2c_read(0);
 }
+```
 
 It can be compiled and executed as follows:
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ make
+cc    -c -o i2cread.o i2cread.c
+cc -o i2cread i2cread.o -li2c
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ ./i2cread
+r dev(0x60) reg(0x0)=0x11 (decimal 17)
+```
 
-elec3607@raspberrypi:~ $ gcc -o si5351 si5351.c -li2c
-elec3607@raspberrypi:~ $ ./si5351 
-r dev(0x60) reg(0x0)=0x11
-
-1.3. Programming the Clock Generator
+### 1.4 Programming the Clock Generator
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
