@@ -1,7 +1,7 @@
 # Lab1 gpio
 
 In this lab you will learn how to manipulate GPIO output in two different
-ways.
+ways (libgpiod and mmap).
 
 ## 1. Installation (10%)
 To start, you should download all the lab materials for this course. With your 
@@ -22,6 +22,31 @@ for Lab 1:
 elec3607@raspberrypi:~ $ cd elec3607-lab/labs/lab1-gpio/
 elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ls
 libgpiod_blink.c  Makefile  mmap_blink.c  README.md
+```
+
+Install the libgpiod library using the ```apt``` command. This needs
+to be run as a superuser via ```sudo``` since the library is installed in 
+a system directory (```/usr/lib/libgpiod.so```). This is done as below:
+
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ sudo apt install libgpiod-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Suggested packages:
+  libgpiod-doc
+The following NEW packages will be installed:
+  libgpiod-dev
+0 upgraded, 1 newly installed, 0 to remove and 18 not upgraded.
+Need to get 58.4 kB of archives.
+After this operation, 352 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main arm64 libgpiod-dev arm64 1.6.3-1+b3 [58.4 kB]
+Fetched 58.4 kB in 0s (140 kB/s)  
+Selecting previously unselected package libgpiod-dev:arm64.
+(Reading database ... 144701 files and directories currently installed.)
+Preparing to unpack .../libgpiod-dev_1.6.3-1+b3_arm64.deb ...
+Unpacking libgpiod-dev:arm64 (1.6.3-1+b3) ...
+Setting up libgpiod-dev:arm64 (1.6.3-1+b3) ...
 ```
 
 ## 2. Libgpiod (30%)
@@ -191,31 +216,6 @@ gpiochip1 - 8 lines:
 	line   7:    "SD_OC_N"       unused   input  active-high
 ```
 
-
-Install the libgpiod library using the ```apt``` command. This needs
-to be run as a superuser via ```sudo``` since the library is installed in 
-a system directory (```/usr/lib/libgpiod.so```). This is done as below:
-
-```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ sudo apt install libgpiod-dev
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-Suggested packages:
-  libgpiod-doc
-The following NEW packages will be installed:
-  libgpiod-dev
-0 upgraded, 1 newly installed, 0 to remove and 18 not upgraded.
-Need to get 58.4 kB of archives.
-After this operation, 352 kB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian bookworm/main arm64 libgpiod-dev arm64 1.6.3-1+b3 [58.4 kB]
-Fetched 58.4 kB in 0s (140 kB/s)  
-Selecting previously unselected package libgpiod-dev:arm64.
-(Reading database ... 144701 files and directories currently installed.)
-Preparing to unpack .../libgpiod-dev_1.6.3-1+b3_arm64.deb ...
-Unpacking libgpiod-dev:arm64 (1.6.3-1+b3) ...
-Setting up libgpiod-dev:arm64 (1.6.3-1+b3) ...
-```
 
 The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code. 
 Complete the parts labelled ```XXX``` to create a program that will 
