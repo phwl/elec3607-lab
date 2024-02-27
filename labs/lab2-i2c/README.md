@@ -1,4 +1,4 @@
-# Lab 3 - Si5351 Clock Generator Construction
+# Lab 3 - ELEC3607-SDRv2 Construction and i2c
 
 This lab involves soldering the remaining components on the ELEC3607-SDRv2 printed circuit board and programming the Si5351 to test your handiwork. This is a 2 week experiment and we will mark both parts together after 2 weeks.
 
