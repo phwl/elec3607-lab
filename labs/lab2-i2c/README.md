@@ -1,9 +1,14 @@
-# Lab 3 - Si5351 Clock Generator
+# Lab 3 - Si5351 Clock Generator Construction
 
-This lab involves testing the Si5351 (which has an i2c interface). 
+This lab involves soldering the remaining components on the ELEC3607-SDRv2 printed circuit board and programming the Si5351 to test your handiwork. This is a 2 week experiment and we will mark both parts together after 2 weeks.
 
-## 1. Introduction
-### 1.1 Raspberry Pi Configuration
+## 1. Soldering (Week 1)
+Identify the missing components on the PCB and from the schematic diagram, understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+
+Solder the remaining components to your PCB. Think about how to test that they have been soldered correctly and are working properly using only a multimeter and oscilloscope.
+
+## 2. Si5351 Programming (Week 2)
+### 2.1 Raspberry Pi Configuration
 First you need to enable the RPi i2c port. You do this by running
 ```raspi-config```, select ```Interface Options``` and then 
 select ```I2C```. This loads the i2c driver into the kernel.
@@ -36,7 +41,7 @@ Continue? [Y/n]
 ```
 This tells us that the only device that responded was the one at address 0x60 (which happens to be the si5351 chip).
 
-### 1.2 I2C Interface to Si5351
+### 2.2 I2C Interface to Si5351
 
 The i2c interface is simple. First study the SDR board and connect the power, SDA and SCL lines of the from the RPi to the appropriate port on the SDR board. 
 
@@ -44,7 +49,7 @@ Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
 
 ![](rpi-i2c.png)
 
-### 1.3 Linux userspace driver
+### 2.3 Linux userspace driver
 
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ sudo apt install libi2c-dev
@@ -125,7 +130,7 @@ elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ ./i2cread
 r dev(0x60) reg(0x0)=0x11 (decimal 17)
 ```
 
-### 1.4 Programming the Clock Generator
+### 2.4 Programming the Clock Generator
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
@@ -403,7 +408,7 @@ If these steps are followed, the output as specified in the include file should 
 
 Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q) clock (CLK1) by 90 degrees (or 1/4 cycle). We can do this by setting the CLK1_PHOFF register to the appropriate value.
 
-## Laboratory Experiment
+### 2.5 Laboratory Experiment
 
 Update the lab files as below (your output might be different).
 
@@ -429,7 +434,7 @@ elec3607@raspberrypi:~/elec3607-lab $ cd labs/lab2-i2c/
 elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $
 ```
 
-### Part 1 - I2C Interface (30%)
+#### Part 1 - I2C Interface (30%)
 
 Connect up your RPi to the Si5351. Verify that you can obtain the following output.
 
@@ -446,10 +451,10 @@ elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ i2cdetect -y 1 0x60 0x60
 70:
 ```
 
-### Part 2 - I2C Transaction (30%)
+#### Part 2 - I2C Transaction (30%)
 
 Use the userspace i2c driver (i2cread) shown above to read register 0. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
 
-### Part 3 - Si5351 Configuration (40%)
+#### Part 3 - Si5351 Configuration (40%)
 
 Modify the userspace driver for the Si5351 to generate a 7.0386 MHz square wave output on CLK0 and CLK1, with CLK1 being delayed by 90 degrees from CLK0.
