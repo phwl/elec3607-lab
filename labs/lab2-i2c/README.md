@@ -1,11 +1,12 @@
 # Lab 3 - ELEC3607-SDRv2 Construction and i2c
 
-This lab involves soldering the remaining components on the ELEC3607-SDRv2 printed circuit board and programming the Si5351 to test your handiwork. This is a 2 week experiment and we will mark both parts together after 2 weeks.
+This lab involves soldering the remaining components on the ELEC3607-SDRv2 printed circuit board and programming the Si5351 to test your handiwork. This is a 2 week experiment and we will mark the two parts (Soldering and Si5351 Programming) separately the week following the lab.
 
-## 1. Soldering (Week 1)
+## 1. Soldering (Week 1 - 100%)
 Identify the missing components on the PCB and from the schematic diagram, understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
-Solder the remaining components to your PCB. Think about how to test that they have been soldered correctly and are working properly using only a multimeter and oscilloscope.
+Solder the remaining components to your PCB. Think about how to test that they have been soldered correctly and are working properly using only a multimeter and oscilloscope. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book
+why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
 
 ## 2. Si5351 Programming (Week 2)
 ### 2.1 Raspberry Pi Configuration

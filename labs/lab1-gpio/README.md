@@ -217,7 +217,7 @@ gpiochip1 - 8 lines:
 ```
 
 Using the above commands, demonstrate that you can make GPIO 26 high or
-low and verify using an oscilloscope.
+low and verify using an oscilloscope. If it doesn't look like a square wave, explain why. 
 
 ## 3. Libgpiod C code (30%)
 
@@ -238,7 +238,7 @@ elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ./libgpiod_blink
 ## 3. mmap (highest speed) (20%)
 Modify the mmap version to produce the highest clock frequency square wave,
 capture a screen shot and record the shortest period achieved. Try to get the best oscilloscope trace of the
-output. If it doesn't look like a square wave, explain why.
+output. 
 
 ## 4. mmap (50 MHz) (30%)
 Directly controlling the registers on the microcontroller via ```mmap(2)``` gives the highest performance and flexibility but is device-dependent. 
