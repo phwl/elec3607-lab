@@ -171,7 +171,7 @@ for the Si5351 refers to the
 [Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows so you may need to find a suitable machine for this step. 
 For your reference, [Application Note AN619 Manually Generating an Si5351 Register Map for 10-MSOP and 20-QFN Devices](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf) explains how to program the Si5351 without using ClockBuilder Desktop. It might be useful in your later experiments.
 
-Here is a header file that I generated for CLK0 and CLK1 outputs of 28.1544 MHz.
+Here is a header file that I generated for CLK0 and CLK1 outputs at 28.1544 MHz.
 
 ```C
 /*
