@@ -168,7 +168,7 @@ Obtain your own oscilloscope capture when running ```i2cread```. Annotate the ca
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
-[Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows but in embedded systems it is a fact of life that if you use operating system X, there will be a piece of software that is only supported on operating system Y that you need. Here is a header file that I generated for CLK0 and CLK1 outputs of 28.1544 MHz.
+[Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows so you may need to find a suitable machine for this step. Here is a header file that I generated for CLK0 and CLK1 outputs of 28.1544 MHz.
 
 ```C
 /*
@@ -413,11 +413,10 @@ si5351a_revb_register_t const si5351a_revb_registers[SI5351A_REVB_REG_CONFIG_NUM
 #endif
 ```
 
-Our approach will be to use the header file above, [Application Note AN619 Manually Generating an Si5351 Register Map for 10-MSOP and 20-QFN Devices](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf)
-and follow the programming procedure in Figure 10 of the data sheet
+ClockBuilder Desktop allows a user to generate a C header file to program the Si5351 with custom frequency plans via I2C.  
+Read [Application Note AN619 Manually Generating an Si5351 Register Map for 10-MSOP and 20-QFN Devices](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf)
+and understand the programming procedure in Figure 10,
  summarised below.
-
-ClockBuilder Desktop allows a user to generate RAM configuration files to program the Si5351 with custom frequency plans via I2C.  Once the register map has been generated, use the procedure below to program the device.
 
 1. Disable all outputs.
        reg3 = 0xFF
@@ -438,9 +437,9 @@ ClockBuilder Desktop allows a user to generate RAM configuration files to progra
        reg177 = 0xAC
 7. Enable outputs with OEB control in register 3.
 
-If these steps are followed, the output as specified in the include file should appear. It doesn’t look much like a square wave on my 150 MHz bandwidth oscilloscope. Why?
+Using the above information, 
+use ClockBuilder Desktop to generate an include file with values for a 7.0386 MHz square wave output. Modify the userspace driver to generate a 7.0386 MHz square wave output on CLK0 and CLK1. Capture the output waveforms using an oscilloscope and record the frequency measured.
 
-Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q) clock (CLK1) by 90 degrees (or 1/4 cycle). We can do this by setting the CLK1_PHOFF register to the appropriate value.
+Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q) clock (CLK1) by 90 degrees (or 1/4 cycle). We can do this by setting the CLK1_PHOFF register to the appropriate value. Make this change and capture the output waveform again.
 
-Modify the userspace driver for the Si5351 to generate a 7.0386 MHz square wave output on CLK0 and CLK1, with CLK1 being delayed by 90 degrees from CLK0. Capture the output waveform using an oscilloscope and record the frequency measured.
 
