@@ -437,8 +437,7 @@ and understand the programming procedure in Figure 10,
        reg177 = 0xAC
 7. Enable outputs with OEB control in register 3.
 
-Using the above information, 
-use ClockBuilder Desktop to generate an include file with values for a 7.0386 MHz square wave output. Modify the userspace driver to generate a 7.0386 MHz square wave output on CLK0 and CLK1. Capture the output waveforms using an oscilloscope and record the frequency measured.
+Use ClockBuilder Desktop to generate an include file similar to the above but for a 7.0386 MHz square wave output. Modify the userspace driver so it generates a 7.0386 MHz square wave output on CLK0 and CLK1. Capture the output waveforms using an oscilloscope and record the frequency measured.
 
 Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q) clock (CLK1) by 90 degrees (or 1/4 cycle). We can do this by setting the CLK1_PHOFF register to the appropriate value. Make this change and capture the output waveform again.
 
