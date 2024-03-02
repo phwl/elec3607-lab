@@ -50,10 +50,58 @@ Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
 
 ![](rpi-i2c.png)
 
-### 2.3 Linux userspace driver
+### 2.3 Laboratory Experiment
+
+#### Part 1 - I2C Interface (30%)
+
+Connect up your RPi to the Si5351. Verify that you can obtain the following output.
 
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ sudo apt install libi2c-dev
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ i2cdetect -y 1 0x60 0x60
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                                                 
+10:                                                 
+20:                                                 
+30:                                                 
+40:                                                 
+50:                                                 
+60: 60                                              
+70:
+```
+
+#### Part 2 - I2C Transaction (30%)
+
+Use the userspace i2c driver (i2cread) described below to read register 0. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
+
+First, ensure you have the latest version of the lab notes. The easiest way to do this is to do a ```git pull``` from the ```elec3607-lab``` directory on your RPi as below
+(your output might be different).
+
+```bash
+elec3607@raspberrypi:~ $ cd ~/elec3607-lab
+elec3607@raspberrypi:~/elec3607-lab $ git pull
+Enter passphrase for key '/home/elec3607/.ssh/id_rsa': 
+Updating e771ae6..fd6285a
+Fast-forward
+ labs/lab1-gpio/README.md        |   8 +-
+ labs/lab1-gpio/libgpiod-ref.pdf | Bin 0 -> 428152 bytes
+ labs/lab1-gpio/mmap_blink.c     |   0
+ labs/lab2-si5351/Makefile          |   0
+ labs/lab2-si5351/README.md         | 461 ++++++++++++++++++++++++++++++++++++++++
+ labs/lab2-si5351/i2c-stub.c        |   0
+ labs/lab2-si5351/i2cread.c         |   0
+ labs/lab2-si5351/rpi-i2c.png       | Bin 0 -> 28035 bytes
+ 8 files changed, 465 insertions(+), 4 deletions(-)
+ mode change 100755 => 100644 labs/lab2-si5351/Makefile
+ create mode 100755 labs/lab2-si5351/README.md
+ mode change 100755 => 100644 labs/lab2-si5351/i2cread.c
+ create mode 100755 labs/lab2-si5351/rpi-i2c.png
+elec3607@raspberrypi:~/elec3607-lab $ cd labs/lab2-si5351/
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $
+```
+
+
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ sudo apt install libi2c-dev
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -76,7 +124,7 @@ Setting up libi2c-dev:arm64 (4.3-2+b3) ...
 
 There are several ways that this interface can be made. We are going to create a Linux i2c-dev userspace driver, which is the most straightforward. The following program, derived from the Linux Kernel userspace driver documentation
 
-The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-1, address 0x60, i.e. register 0 of the Si5351. Note there could be multiple devices connected to a single i2c chip.
+The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-1, address 0x60, i.e. register 0 of the Si5351. 
 
 ```C
 #include <stdio.h>
@@ -124,14 +172,14 @@ main()
 
 It can be compiled and executed as follows:
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ make
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ make
 cc    -c -o i2cread.o i2cread.c
 cc -o i2cread i2cread.o -li2c
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ ./i2cread
+elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ ./i2cread
 r dev(0x60) reg(0x0)=0x11 (decimal 17)
 ```
 
-### 2.4 Programming the Clock Generator
+#### Part 3 - Si5351 Configuration (40%)
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
@@ -409,53 +457,5 @@ If these steps are followed, the output as specified in the include file should 
 
 Finally, we wish to have the inphase (I) clock (CLK0) lagging the quadrature (Q) clock (CLK1) by 90 degrees (or 1/4 cycle). We can do this by setting the CLK1_PHOFF register to the appropriate value.
 
-### 2.5 Laboratory Experiment
-
-Update the lab files as below (your output might be different).
-
-```bash
-elec3607@raspberrypi:~/elec3607-lab $ git pull
-Enter passphrase for key '/home/elec3607/.ssh/id_rsa': 
-Updating e771ae6..fd6285a
-Fast-forward
- labs/lab1-gpio/README.md        |   8 +-
- labs/lab1-gpio/libgpiod-ref.pdf | Bin 0 -> 428152 bytes
- labs/lab1-gpio/mmap_blink.c     |   0
- labs/lab2-i2c/Makefile          |   0
- labs/lab2-i2c/README.md         | 461 ++++++++++++++++++++++++++++++++++++++++
- labs/lab2-i2c/i2c-stub.c        |   0
- labs/lab2-i2c/i2cread.c         |   0
- labs/lab2-i2c/rpi-i2c.png       | Bin 0 -> 28035 bytes
- 8 files changed, 465 insertions(+), 4 deletions(-)
- mode change 100755 => 100644 labs/lab2-i2c/Makefile
- create mode 100755 labs/lab2-i2c/README.md
- mode change 100755 => 100644 labs/lab2-i2c/i2cread.c
- create mode 100755 labs/lab2-i2c/rpi-i2c.png
-elec3607@raspberrypi:~/elec3607-lab $ cd labs/lab2-i2c/
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $
-```
-
-#### Part 1 - I2C Interface (30%)
-
-Connect up your RPi to the Si5351. Verify that you can obtain the following output.
-
-```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-i2c $ i2cdetect -y 1 0x60 0x60
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                                                 
-10:                                                 
-20:                                                 
-30:                                                 
-40:                                                 
-50:                                                 
-60: 60                                              
-70:
-```
-
-#### Part 2 - I2C Transaction (30%)
-
-Use the userspace i2c driver (i2cread) shown above to read register 0. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
-
-#### Part 3 - Si5351 Configuration (40%)
-
 Modify the userspace driver for the Si5351 to generate a 7.0386 MHz square wave output on CLK0 and CLK1, with CLK1 being delayed by 90 degrees from CLK0.
+
