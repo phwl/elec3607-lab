@@ -1,4 +1,4 @@
-# Lab 3 - Si5351
+# Lab 2 - Si5351
 
 This lab involves soldering the components for the Si5351 on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
 
