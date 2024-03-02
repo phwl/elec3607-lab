@@ -3,7 +3,7 @@
 This lab involves soldering the components for the Si5351 on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
 
 ## 1. Part A - Soldering (100%)
-Identify the missing components on the printed circuit board (PCB) that are required for the Si5351. You will need to study the PCB and the schematic diagram to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+Identify the missing components on the printed circuit board (PCB) that are required for the Si5351. You will need to study the PCB and the schematic diagram from the lecture notes to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
 Solder the remaining components to your PCB. Think about how to test that they have been soldered correctly and are working properly using only a multimeter and oscilloscope. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book
 why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
