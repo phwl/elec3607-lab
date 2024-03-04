@@ -2,16 +2,16 @@
 
 This lab involves soldering the components for the Si5351 Clock Generator on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
 
-## 1. Part A - Soldering (100%)
+## 1. Part A - Construction
+#### Question 1 - Soldering (100%)
 Identify the missing components on the printed circuit board (PCB) that are required for the Si5351 Clock Generator. You will need to study the PCB and the schematic diagram from the lecture notes to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
 Solder the Si5351 and crystal to your PCB. Think about how to test that they have been soldered correctly and are working properly using only a multimeter and oscilloscope with x10 probe. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book
 why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
 
 ## 2. Part B - Si5351 Programming 
-### 2.3 Laboratory Experiment
 
-#### Part 1 - I2C Interface (30%)
+#### Question 1 - I2C Interface (30%)
 First you need to enable the RPi i2c port. You do this by running
 ```raspi-config```, select ```Interface Options``` and then 
 select ```I2C```. This loads the i2c driver into the kernel.
@@ -47,7 +47,7 @@ Continue? [Y/n]
 60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 ```
 
-#### Part 2 - I2C Transaction (30%)
+#### Question 2 - I2C Transaction (30%)
 
 Use the userspace i2c driver (i2cread) described below to read register 0. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
 
@@ -164,7 +164,7 @@ Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
 Obtain your own oscilloscope capture when running ```i2cread```. Annotate the capture to show the i2c transaction that occurred. 
 
 
-#### Part 3 - Si5351 Configuration (40%)
+#### Question 3 - Si5351 Configuration (40%)
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
