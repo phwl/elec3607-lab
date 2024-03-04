@@ -8,7 +8,7 @@ Identify the missing components on the printed circuit board (PCB). You will nee
 
 In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
 
-Here is what the output on the XA pin of the Si5351 should look like.
+Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator for working).
 
 ![](xtalout.jpg)
 
