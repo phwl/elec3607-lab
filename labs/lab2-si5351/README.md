@@ -2,7 +2,7 @@
 
 This lab involves soldering the components for the Si5351 Clock Generator on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
 
-## 1. Part A - Construction
+## Part A - Construction
 #### Question 1 - Soldering (100%)
 Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram from the lecture notes to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
@@ -12,7 +12,7 @@ Here is what the output on the XA pin of the Si5351 should look like (note that 
 
 ![](xtalout.jpg)
 
-## 2. Part B - Si5351 Programming 
+## Part B - Si5351 Programming 
 
 #### Question 1 - I2C Interface (30%)
 First you need to enable the RPi i2c port. You do this by running
