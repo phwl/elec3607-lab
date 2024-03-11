@@ -28,7 +28,7 @@ Run the simulation and display the voltage of nodes I_out and Q_out in a plot. P
 
 Now test your PCB by using a function generator with sine wave inputs at 1.005 MHz, 1.006 MHz and 1.007 MHz and show that it can mix with a carrier of 1 MHz to achieve outputs at 5, 6 and 7 kHz. To do this you will need to reprogram your Si5351 to have a 1 MHz carrier. Describe the expected behaviour in your lab book and include screen shots to demonstrate that it was achieved. 
 
-*Note that the reason we use a 1 MHz carrier below is that the signal generators in the lab do not go up to 7 MHz. For WSPR, we need 7 MHz but expect that if we can verify at 1 MHz it is likely to work.*
+*Note that the reason we use a 1 MHz carrier below is that the signal generators in the lab do not go up to 7 MHz. For WSPR, we need 7 MHz but if we can verify at 1 MHz it is likely to work.*
 
 ### Question 2 - Tayloe Detector LTSpice Simulation (30%)
 
