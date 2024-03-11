@@ -27,6 +27,8 @@ Run the simulation and display the voltage of nodes I_out and Q_out in a plot. P
 ![](mixersim.png)
 
 Now test your PCB by using a function generator with sine wave inputs at 1.005 MHz, 1.006 MHz and 1.007 MHz and show that it can mix with a carrier of 1 MHz to achieve outputs at 5, 6 and 7 kHz. To do this you will need to reprogram your Si5351 to have a 1 MHz carrier. Describe the expected behaviour in your lab book and include screen shots to demonstrate that it was achieved. 
+*Note that the reason we use a 1 MHz carrier below is that the signal generators in the lab do not go up to 7 MHz. For WSPR, we need 7 MHz but expect that if we can verify at 1 MHz it is likely to work.*
+
 ### Question 2 - Tayloe Detector LTSpice Simulation (30%)
 
 The initial simulation provided is for a simulation at 1 MHz. WSPR transmits a 4-FSK message. Change the simulation so fc=7.0386 MHz and FRQ will step from 7.04010 MHz over the exact range of values of a legal WSPR transmission (i.e. 4-FSK with a 1.4648 Hz tone separation). Make an fft plot of I_out and n005 similar to the one above. Explain the changes you made in your lab book. Note that I have had issues with LTSpice on the M1 Mac crashing but found that I could get it to work by changing the ```.step param FRQ``` command.
