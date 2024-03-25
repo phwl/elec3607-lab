@@ -3,8 +3,7 @@ This lab involves installing software defined radio (SDR) software on the RPi in
  * pulseaudio, a library which will allow you to access the audio features of Linux
  * the wspr decoder
 
-## Question 1 -  Pulseaudio (60\%)
-First install some software
+First cd to your ```elec3607-lab``` directory and type ```git pull``` to ensure you have the latest version of the lab. Then update apt and install ```pavucontrol```.
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ sudo apt update
 Hit:1 http://deb.debian.org/debian bookworm InRelease
@@ -75,6 +74,7 @@ Processing triggers for mailcap (3.70+nmu1) ...
 Processing triggers for desktop-file-utils (0.26-1) ...
 Processing triggers for gnome-menus (3.36.0-1.1) ...
 ```
+## Question 1 -  Pulseaudio (60\%)
 
 Plug in your USB sound card. It should appear if you type the following:
 ```bash
