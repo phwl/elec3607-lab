@@ -195,7 +195,7 @@ make: *** [Makefile:5: wspr] Error 2
 
 Learn how to fix this issue by installing the appropriate libraries so that ```make wpsr``` can compile and run successfully.
 
-## Question 3 -  Compiling ```wsprcan``` (20\%)
+## Question 3 -  Compiling ```parec``` (20\%)
 In the parecfile directory, parecfile.c is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
 
 Unfortunately, it doesn't compile
@@ -209,9 +209,9 @@ parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
 compilation terminated.
 make: *** [Makefile:62: parecfile.o] Error 1
 ```
-Fix this problem by figuring out the appropriate libraries and packages to install.
+Fix this problem by figuring out the appropriate libraries and packages to install. Study what this program does as you will need to add this functionality to ```wsprcan/wsprd.c``` next lab.
 
-## Question 4 (Optional) - SoapySDR and quisk (30\%)
+## Question 4 (Optional) - SoapySDR and quisk (20\%)
 
 Quisk is a software defined radio software program. It uses the SoapySDR library as the interface to the radio. In this part of the lab, don't use the apt installer as the excercise is to compile the code from source.
 
