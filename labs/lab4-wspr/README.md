@@ -163,12 +163,46 @@ elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl list short
 58	alsa_card.platform-fef05700.hdmi	alsa
 ```
 
-You should now be able to play a file using ```paplay``` and display the level textually with ```pavucontrol``` like in the figure below.
+You should now be able to play a file using ```paplay``` and display the level textually with ```pavucontrol```:
 
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ paplay data/iq-16b.wav &
+[1] 2823
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pavucontrol&
+[2] 2824
+```
+
+This should result in the display below and the VU meter will display the level of the file ```data/iq-16b.wav``` as it plays.
 
 ![](pavucontrol.png)
 
-## Question 4 (Optional) - SoapySDR and quisk (30\%)
+## Question 2 - Compiling wsprd (30\%)
+```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command but unfortunately, it is missing the fft3 library.
+
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
+(cd wsprcan; make)
+make[1]: Entering directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+gcc -c -o wsprd.o wsprd.c -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
+wsprd.c:37:10: fatal error: fftw3.h: No such file or directory
+   37 | #include <fftw3.h>
+      |          ^~~~~~~~~
+compilation terminated.
+make[1]: *** [Makefile:8: wsprd.o] Error 1
+make[1]: Leaving directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make: *** [Makefile:5: wspr] Error 2
+```
+
+Learn how to fix this issue by installing the appropriate libraries so that ```make wpsr``` can compile and run successfully.
+
+## Question 3 -  Modifying ```wsprcan``` (50\%)
+In the parecfile directory, parecfile.c is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
+
+Using the ```parecfile/parecfile.c``` code as an example, modify ```wsprcan/wsprd.c``` so that instead of reading its input from a wav file, it reads it from pulseaudio.
+
+Demonstrate that your program works by playing a file in the background, and decoding it with your modified program.
+
+## Question 4 (Optional 20%) - SoapySDR and quisk (30\%)
 
 Quisk is a software defined radio software program. It uses the SoapySDR library as the interface to the radio. In this part of the lab, don't use the apt installer as the excercise is to compile the code from source.
 
