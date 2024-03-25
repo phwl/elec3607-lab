@@ -74,7 +74,7 @@ Processing triggers for mailcap (3.70+nmu1) ...
 Processing triggers for desktop-file-utils (0.26-1) ...
 Processing triggers for gnome-menus (3.36.0-1.1) ...
 ```
-## Question 1 -  Pulseaudio (60\%)
+## Question 1 -  Pulseaudio (30\%)
 
 Plug in your USB sound card. It should appear if you type the following:
 ```bash
@@ -195,14 +195,23 @@ make: *** [Makefile:5: wspr] Error 2
 
 Learn how to fix this issue by installing the appropriate libraries so that ```make wpsr``` can compile and run successfully.
 
-## Question 3 -  Modifying ```wsprcan``` (50\%)
+## Question 3 -  Compiling ```wsprcan``` (20\%)
 In the parecfile directory, parecfile.c is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
 
-Using the ```parecfile/parecfile.c``` code as an example, modify ```wsprcan/wsprd.c``` so that instead of reading its input from a wav file, it reads it from pulseaudio.
+Unfortunately, it doesn't compile
+```bash
+elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr $ cd parecfile
+elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr/parecfile $ make
+gcc -Wall -g  -c parecfile.c  -o parecfile.o
+parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
+   29 | #include <pulse/simple.h>
+      |          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:62: parecfile.o] Error 1
+```
+Fix this problem by figuring out the appropriate libraries and packages to install.
 
-Demonstrate that your program works by playing a file in the background, and decoding it with your modified program.
-
-## Question 4 (Optional 20%) - SoapySDR and quisk (30\%)
+## Question 4 (Optional) - SoapySDR and quisk (30\%)
 
 Quisk is a software defined radio software program. It uses the SoapySDR library as the interface to the radio. In this part of the lab, don't use the apt installer as the excercise is to compile the code from source.
 
