@@ -201,6 +201,28 @@ This should result in the display below and the VU meter will display the level 
 
 ![](pavucontrol.png)
 
+Finally, set the default source and sink to MySink (device 176).
+```bash
+elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-sink 176
+elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-source 176
+elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl info
+Server String: /run/user/1000/pulse/native
+Library Protocol Version: 35
+Server Protocol Version: 35
+Is Local: yes
+Client Index: 416
+Tile Size: 65472
+User Name: elec3607
+Host Name: raspberrypi
+Server Name: PulseAudio (on PipeWire 0.3.65)
+Server Version: 15.0.0
+Default Sample Specification: float32le 2ch 48000Hz
+Default Channel Map: front-left,front-right
+Default Sink: MySink
+Default Source: MySink.monitor
+Cookie: f463:94dd
+```
+
 ## Question 2 - Compiling wsprd (10\%)
 ```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command but unfortunately, it is missing the fft3 library.
 
@@ -238,7 +260,7 @@ rm mono.wav
 In your lab book, explain what is being done by this program. Also explain the role of the ```sox``` command.
 
 ## Question 3 -  Compiling ```parec``` (10\%)
-In the parecfile directory, parecfile.c is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
+In the parecfile directory, ```parecfile.c``` is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
 
 Unfortunately, it doesn't compile
 ```bash
