@@ -201,7 +201,7 @@ This should result in the display below and the VU meter will display the level 
 
 ![](pavucontrol.png)
 
-Finally, set the default source and sink to MySink (device 176).
+Finally, do the following and explain the purpose of these commands.
 ```bash
 elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-sink 176
 elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-source 176
