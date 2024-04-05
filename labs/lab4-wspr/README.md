@@ -284,7 +284,6 @@ modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of t
 elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ paplay data/iq-16b.wav &
 [1] 10353
 elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ ./pa-wsprcan/k9an-wsprd 
-Writing data/wf-1712294438.wav
 mode  -1 -2.0   0.001437 -2  VK2RG QF56 30 
 mode -19 -1.8   0.001455 -1  VK3GOD QF23 23 
 mode -20 -1.9   0.001478 -1  VK4YEH QG62 37 
