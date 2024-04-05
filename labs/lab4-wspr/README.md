@@ -74,96 +74,121 @@ Processing triggers for mailcap (3.70+nmu1) ...
 Processing triggers for desktop-file-utils (0.26-1) ...
 Processing triggers for gnome-menus (3.36.0-1.1) ...
 ```
-## Question 1 -  Pulseaudio (30\%)
+## Question 1 -  Pipewire (10\%)
 
-Plug in your USB sound card. It should appear if you type the following:
+In this question, you will explore some of the features of [Pipewire](https://docs.pipewire.org/).  Plug in your USB sound card. It should appear if you type the following:
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ aplay -l
-**** List of PLAYBACK Hardware Devices ****
-card 0: vc4hdmi0 [vc4-hdmi-0], device 0: MAI PCM i2s-hifi-0 [MAI PCM i2s-hifi-0]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 1: vc4hdmi1 [vc4-hdmi-1], device 0: MAI PCM i2s-hifi-0 [MAI PCM i2s-hifi-0]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 2: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
-  Subdevices: 8/8
-  Subdevice #0: subdevice #0
-  Subdevice #1: subdevice #1
-  Subdevice #2: subdevice #2
-  Subdevice #3: subdevice #3
-  Subdevice #4: subdevice #4
-  Subdevice #5: subdevice #5
-  Subdevice #6: subdevice #6
-  Subdevice #7: subdevice #7
-card 3: Device [Plugable USB Audio Device], device 0: USB Audio [USB Audio]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ wpctl status
+PipeWire 'pipewire-0' [0.3.65, elec3607@raspberrypi, cookie:4100166877]
+ └─ Clients:
+        31. pipewire                            [0.3.65, elec3607@raspberrypi, pid:943]
+        33. WirePlumber                         [0.3.65, elec3607@raspberrypi, pid:942]
+        34. WirePlumber [export]                [0.3.65, elec3607@raspberrypi, pid:942]
+        83. xdg-desktop-portal-wlr              [0.3.65, elec3607@raspberrypi, pid:1284]
+        84. xdg-desktop-portal                  [0.3.65, elec3607@raspberrypi, pid:1215]
+        85. unknown                             [0.3.65, elec3607@raspberrypi, pid:1119]
+        86. wpctl                               [0.3.65, elec3607@raspberrypi, pid:8977]
+
+Audio
+ ├─ Devices:
+ │      54. Plugable USB Audio Device           [alsa]
+ │      55. Built-in Audio                      [alsa]
+ │      56. Built-in Audio                      [alsa]
+ │      57. Built-in Audio                      [alsa]
+ │  
+ ├─ Sinks:
+ │      32. Built-in Audio Digital Stereo (HDMI) [vol: 0.40]
+ │  *   70. Plugable USB Audio Device Analog Stereo [vol: 0.40]
+ │      72. Built-in Audio Stereo               [vol: 0.40]
+ │  
+ ├─ Sink endpoints:
+ │  
+ ├─ Sources:
+ │  *   71. Plugable USB Audio Device Analog Stereo [vol: 1.00]
+ │  
+ ├─ Source endpoints:
+ │  
+ └─ Streams:
+
+Video
+ ├─ Devices:
+ │      40. rpivid                              [v4l2]
+ │      41. bcm2835-codec-decode                [v4l2]
+ │      42. bcm2835-codec-encode                [v4l2]
+ │      43. bcm2835-codec-isp                   [v4l2]
+ │      44. bcm2835-codec-image_fx              [v4l2]
+ │      45. bcm2835-codec-encode_image          [v4l2]
+ │      46. bcm2835-isp                         [v4l2]
+ │      47. bcm2835-isp                         [v4l2]
+ │      48. bcm2835-isp                         [v4l2]
+ │      49. bcm2835-isp                         [v4l2]
+ │      50. bcm2835-isp                         [v4l2]
+ │      51. bcm2835-isp                         [v4l2]
+ │      52. bcm2835-isp                         [v4l2]
+ │      53. bcm2835-isp                         [v4l2]
+ │  
+ ├─ Sinks:
+ │  
+ ├─ Sink endpoints:
+ │  
+ ├─ Sources:
+ │      58. bcm2835-isp (V4L2)                 
+ │      60. bcm2835-isp (V4L2)                 
+ │      62. bcm2835-isp (V4L2)                 
+ │      64. bcm2835-isp (V4L2)                 
+ │  
+ ├─ Source endpoints:
+ │  
+ └─ Streams:
+
+Settings
+ └─ Default Configured Node Names:
 ```
 
-You can also check that pulseaudio is working:
+Pipewire supports multiple interfaces (including pulseaudio which is the one we will be using). The [wiki](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PulseAudio) explains the commands that are available.
+You can also check that pulseaudio is working with ```pactl```:
 ```
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl list short
-1	libpipewire-module-rt	{
-            nice.level    = -11
-            #rt.prio      = 88
-            #rt.time.soft = -1
-            #rt.time.hard = -1
-        }	
-2	libpipewire-module-protocol-native		
-3	libpipewire-module-profiler		
-5	libpipewire-module-metadata		
-7	libpipewire-module-spa-device-factory		
-9	libpipewire-module-spa-node-factory		
-11	libpipewire-module-client-node		
-13	libpipewire-module-client-device		
-15	libpipewire-module-portal		
-16	libpipewire-module-access	{
-            # access.allowed to list an array of paths of allowed
-            # apps.
-            #access.allowed = [
-            #    /usr/bin/pipewire-media-session
-            #]
-
-            # An array of rejected paths.
-            #access.rejected = [ ]
-
-            # An array of paths with restricted access.
-            #access.restricted = [ ]
-
-            # Anything not in the above lists gets assigned the
-            # access.force permission.
-            #access.force = flatpak
-        }	
-17	libpipewire-module-adapter		
-19	libpipewire-module-link-factory		
-21	libpipewire-module-session-manager		
-536870912	module-always-sink		
-67	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	IDLE
-69	alsa_output.platform-bcm2835_audio.stereo-fallback	PipeWire	s16le 2ch 48000Hz	IDLE
-70	alsa_output.platform-fef00700.hdmi.hdmi-stereo	PipeWire	s32le 2ch 48000Hz	IDLE
-67	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo.monitor	PipeWire	s16le 2ch 48000Hz	RUNNING
-68	alsa_input.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	RUNNING
-69	alsa_output.platform-bcm2835_audio.stereo-fallback.monitor	PipeWire	s16le 2ch 48000HzRUNNING
-70	alsa_output.platform-fef00700.hdmi.hdmi-stereo.monitor	PipeWire	s32le 2ch 48000Hz	RUNNING
-93	67	92	PipeWire	float32le 1ch 25Hz
-94	68	92	PipeWire	float32le 1ch 25Hz
-95	69	92	PipeWire	float32le 1ch 25Hz
-96	70	92	PipeWire	float32le 1ch 25Hz
-31	PipeWire	xdg-desktop-portal
-32	PipeWire	wf-panel-pi
-33	PipeWire	wireplumber
-34	PipeWire	wireplumber
-40	PipeWire	xdg-desktop-portal-wlr
-92	PipeWire	pavucontrol
-141	PipeWire	pactl
-55	alsa_card.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00	alsa
-56	alsa_card.platform-bcm2835_audio	alsa
-57	alsa_card.platform-fef00700.hdmi	alsa
-58	alsa_card.platform-fef05700.hdmi	alsa
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl info
+Server String: /run/user/1000/pulse/native
+Library Protocol Version: 35
+Server Protocol Version: 35
+Is Local: yes
+Client Index: 217
+Tile Size: 65472
+User Name: elec3607
+Host Name: raspberrypi
+Server Name: PulseAudio (on PipeWire 0.3.65)
+Server Version: 15.0.0
+Default Sample Specification: float32le 2ch 48000Hz
+Default Channel Map: front-left,front-right
+Default Sink: alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo
+Default Source: alsa_input.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo
+Cookie: f463:94dd
 ```
 
-You should now be able to play a file using ```paplay``` and display the level textually with ```pavucontrol```:
+We are going to create a virtual audio sink which is mono and 12000 samples a second. This is done using:
+```bash
+elec3607@raspberrypi:~/.config $ pactl load-module module-null-sink sink_name=MySink format=s16le channels=1 rate=12000
+536870913
+```
+
+Now let's list the sources and sinks:
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl list short sources
+70	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo.monitor	PipeWire	s16le 2ch 48000Hz	RUNNING
+71	alsa_input.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	RUNNING
+72	alsa_output.platform-bcm2835_audio.stereo-fallback.monitor	PipeWirs16le 2ch 48000Hz	RUNNING
+73	alsa_output.platform-fef00700.hdmi.hdmi-stereo.monitor	PipeWire	s32le 2ch 48000Hz	RUNNING
+176	MySink.monitor	PipeWire	float32le 1ch 12000Hz	RUNNING
+elec3607@raspberrypi:~/.config $ pactl list short sinks
+70	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	IDLE
+72	alsa_output.platform-bcm2835_audio.stereo-fallback	PipeWire	s16le 2ch 48000Hz	IDLE
+73	alsa_output.platform-fef00700.hdmi.hdmi-stereo	PipeWire	s32le 2ch 48000Hz	IDLE
+176	MySink	PipeWire	float32le 1ch 12000Hz	IDLE
+```
+You can see that MySink.monitor and MySink are available.
+
+You should now be able to play a file using ```paplay``` and display the level graphically with ```pavucontrol```:
 
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ paplay data/iq-16b.wav &
@@ -176,7 +201,7 @@ This should result in the display below and the VU meter will display the level 
 
 ![](pavucontrol.png)
 
-## Question 2 - Compiling wsprd (30\%)
+## Question 2 - Compiling wsprd (10\%)
 ```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command but unfortunately, it is missing the fft3 library.
 
 ```bash
@@ -193,9 +218,26 @@ make[1]: Leaving directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
 make: *** [Makefile:5: wspr] Error 2
 ```
 
-Learn how to fix this issue by installing the appropriate libraries so that ```make wpsr``` can compile and run successfully.
+Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wpsr``` should compile and run successfully.
 
-## Question 3 -  Compiling ```parec``` (20\%)
+```bash
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
+(cd wsprcan; make)
+make[1]: Entering directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+sox data/iq-16b.wav -c 1 -t wav -r 12000 -b 16 mono.wav
+wsprcan/k9an-wsprd mono.wav
+mono  -1 -1.3   0.001437 -1  VK2RG QF56 30 
+mono -19 -1.0   0.001455 -1  VK3GOD QF23 23 
+mono -20 -1.1   0.001478 -1  VK4YEH QG62 37 
+<DecodeFinished>
+rm mono.wav
+```
+
+In your lab book, explain what is being done by this program. Also explain the role of the ```sox``` command.
+
+## Question 3 -  Compiling ```parec``` (10\%)
 In the parecfile directory, parecfile.c is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
 
 Unfortunately, it doesn't compile
@@ -209,16 +251,9 @@ parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
 compilation terminated.
 make: *** [Makefile:62: parecfile.o] Error 1
 ```
-Fix this problem by figuring out the appropriate libraries and packages to install. Study what this program does as you will need to add this functionality to ```wsprcan/wsprd.c``` next lab.
+Fix this problem by figuring out the appropriate libraries and packages to install. 
+Study what this program does as you will need it for the following question.
 
-## Question 4 (Optional) - SoapySDR and quisk (20\%)
+## Question 4 - Modifying wsprcan/wsprd.c (70\%)
 
-Quisk is a software defined radio software program. It uses the SoapySDR library as the interface to the radio. In this part of the lab, don't use the apt installer as the excercise is to compile the code from source.
-
-First install SoapySDR by following these instructions: <https://github.com/pothosware/SoapySDR/wiki#installation>
-
-Then install the Python 3 version of quisk: <https://james.ahlstrom.name/quisk/>
-
-Once you have done this, you can execute quisk. Under Linux desktop, a window with the quisk software should appear. Quisk will be a useful tool for debugging your radio. Configure this program so that it can graphically display the output of a file played using ```paplay```.
-
-
+Modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file.
