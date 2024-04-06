@@ -1,7 +1,8 @@
-# SDR Software
-This lab involves installing software defined radio (SDR) software on the RPi including
- * pulseaudio, a library which will allow you to access the audio features of Linux
- * the wspr decoder
+# WSPR Decoder
+
+This lab involves modifying a WSPR-decoder to use pulseaudio on a RPi4. Once this is done, the WSPR-decoder can not only access local audio peripherals on the RPi, it can also use network-based audio souces. 
+
+After completing this lab, you should understand how to capture i/q samples from your radio, convert them to the right format for the k9an-wsprd program, and decode WSPR. You will have a working WSPR decoder, interfaced to pulseaudio.
 
 First cd to your ```elec3607-lab``` directory and type ```git pull``` to ensure you have the latest version of the lab. Then update apt and install ```pavucontrol```.
 ```bash
