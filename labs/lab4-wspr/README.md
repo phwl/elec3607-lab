@@ -277,7 +277,7 @@ make: *** [Makefile:62: parecfile.o] Error 1
 Fix this problem by figuring out the appropriate libraries and packages to install. 
 Study what this program does as you will need it for the following question.
 
-## Question 4 - Modifying wsprcan/wsprd.c (70\%)
+## Question 4 - Modifying wsprcan/wsprd.c (60\%)
 
 Using the ```parecfile/parecfile.c``` code as an example,
 modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file. Demonstrate that your program works by playing a file in the background and decoding it with your modified program:
@@ -290,3 +290,6 @@ mode -19 -1.8   0.001455 -1  VK3GOD QF23 23
 mode -20 -1.9   0.001478 -1  VK4YEH QG62 37 
 <DecodeFinished,data/wf-1712294438.wav,3>
 ```
+
+## Question 5 - wsprwait (10\%)
+Study the bash script wsprwait. In your lab book, provide an annotated listing of what this does and why it might be useful in this project.
