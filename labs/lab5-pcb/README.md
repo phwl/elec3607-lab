@@ -30,9 +30,3 @@ In your lab book you should include:
  1. PCB layout (plot of all layers)
  1. screen shot showing dimensions of your PCB. Smaller PCBs will receive higher marks (but need to be correct).
 
-## Part 3 - Implementation  (bonus 20%)
-
-This part of the lab is optional and should be only be attempted if you
-can finish the other two parts before the deadline. Using [these
-toroid ferrite cores](https://au.element14.com/fair-rite/5961001101/ferrite-core-toroid-61/dp/1781375) and based on [this similar design](BPF-40m.pdf] (that design uses a different toroid core), build and test the BPF circuit
-on the ELEC3608SDR board.
