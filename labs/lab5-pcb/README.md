@@ -4,7 +4,7 @@
 
 This lab involves designing a bandpass filter and developing a standalone printed circuit board (PCB). After completing this lab, you should understand the filter design process and also gain experience using kicad.
 
-## Part 1 - Filter Design (40%)
+## Part 1 - Filter Design (50%)
 
 Using <https://rf-tools.com/lc-filter/> (or any other filter design tool that you like), design a bandpass filter for WSPR which meets the following specifications using the minimum number of components:
 
@@ -18,7 +18,7 @@ Export the design from your filter design program and simulate using LTspice. Ru
 
 Create LTspice plots that demonstrate Specification 1 and 3 can be met assuming random variations of the capacitor and inductor values within the stated tolerance.
 
-## Part 2 - PCB Layout (40%)
+## Part 2 - PCB Layout (50%)
 
 Make a Kicad design of a printed circuit board that implements this filter. For input and output, use PCB mount SMA connectors. Use 1206 surface mount components where possible. Create the Gerber files that could be used for manufacture. For the input and output connectors, use the SMA_Amphenol_132289_EdgeMount footprint. Your board should be 2 sided, use the default Kicad clearances, and roughly square in aspect ratio.
 
