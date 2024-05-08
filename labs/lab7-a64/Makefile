@@ -2,10 +2,13 @@ CC=gcc
 CFLAGS=
 OBJS=	main.o printdec.o
 
-printdec:	main.o
-	$(CC) -S $(CFLAGS) printdec.c
+printdec:	main.o printdec.s
 	$(AS) -o printdec.o printdec.s
 	$(CC) -o $@ $(OBJS)
 
+# Define a pattern rule that compiles a .c file into a .s file
+%.s : %.c
+		$(CC) -S $(CFLAGS) $(CPPFLAGS) $< 
+
 clean:
-	-rm -f $(OBJS) printdec.s printdec
+	-rm -f $(OBJS) printdec
