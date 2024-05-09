@@ -42,7 +42,7 @@ main()
 ```
 
 The supplied copy of the program is split into 2 files, ```main.c``` and ```printdec.c```.
-It can be compiled the commands below. Note how ```printdec.c``` is first compiled to ```printdec.s``` and then assembled to ```printdec.o```.
+It can be compiled the commands below. Note how ```printdec.c``` is first compiled to ```printdec.s``` (using ```gcc -S printdec.c``` and then assembled to ```printdec.o``` (using as -o printdec.o printdec.s). For main.c, this is done in one step because we are not interested in the assembly language output.
 
 ```bash
 $ make
