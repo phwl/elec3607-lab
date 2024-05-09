@@ -161,4 +161,5 @@ Note that _printdec uses the frame pointer for temporary variables. Rewrite in A
 
 ### Part 3 - Assembly Language version of printdec (30%)
 From Part 2, you should have noticed that printdec() prints the string in the reverse order. Modify your assembly language program to fix this bug. Do this by buffering the data inside printdec() and then printing out the buffer in reverse.  
+Hint: it might be easier to do it in C first, study the generated assembly code and then write your own version.
 
