@@ -1,4 +1,4 @@
-# RISCV Assembly Language (Stack Frames and Function Calls)
+# A64 Assembly Language (Stack Frames and Function Calls)
 
 ## Introduction
 The goals of this lab are:
@@ -147,9 +147,10 @@ printdec:
 	.ident	"GCC: (Raspbian 8.3.0-6+rpi1) 8.3.0"
 	.section	.note.GNU-stack,"",%progbits
 ```
-Using gdb, put a breakpoint just before the call to printdec (```bl _printdec```) and display the value of the ```r``` variable. 
-Single step the assembly language using gdb with the ```nexti``` command
-and understand the operation of the program. Show the sequence of commands that you need in gdb to step ```_printdec``` and display the register values.
+Using ```gdbtui``` (a text interface to gdb), put a breakpoint just before the call to printdec (```bl _printdec```) and display the value of the ```r``` variable. 
+Single step the assembly language and understand the operation of the program. Show the sequence of commands that you need in gdb to step ```_printdec``` and display the register values.
+
+![](gdbtui.png)
 
 Create an annotated version of ```printdec.s```. Put this in your lab book and make sure you explain the correspondence with each line of C.
 

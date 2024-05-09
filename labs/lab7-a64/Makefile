@@ -1,5 +1,5 @@
-CC=gcc
-CFLAGS=
+CC=gcc 
+CFLAGS= -march=aarch64 -g
 OBJS=	main.o printdec.o
 
 printdec:	main.o printdec.s
