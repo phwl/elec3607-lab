@@ -161,6 +161,9 @@ and understand the operation of the program. Show the sequence of commands that 
 
 ![](gdbtui.png)
 
+Note, the code that computes  ```n % 10``` and ```n / 10``` is really tricky. You don't need to annotate that in your answer (but can do so for extra credit in
+Part 4).
+
 Create an annotated version of ```printdec.s```. Put this in your lab book and make sure you explain the correspondence with each line of C. You can remove the .cfi and .loc directives in your answer as these are used to help the debugger relate the code back to the original C.
 
 ### Part 2 - Assembly Language version of printdec (40%)
@@ -172,3 +175,6 @@ Note that _printdec uses the frame pointer for temporary variables. Rewrite in A
 From Part 2, you should have noticed that printdec() prints the string in the reverse order. Modify your assembly language program to fix this bug. Do this by buffering the data inside printdec() and then printing out the buffer in reverse.  
 Hint: it might be easier to do it in C first, study the generated assembly code and then write your own version.
 
+### Part 4 - Optional (20%)
+This part gives you the opportunity to get bonus marks and very challenging. Annotate the
+part that computes ```n % 10``` and ```n / 10``` giving a clear description of what it is doing.
