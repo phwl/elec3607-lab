@@ -155,7 +155,7 @@ printdec:
 	; debug stuff deleted
 ```
 
-Using gdb ([manual here](https://sourceware.org/gdb/current/onlinedocs/gdb.html/index.html#Top), also look at the TUI inteface section), put a breakpoint just before the call to printdec (```bl _printdec```) and display the value of the ```r``` variable. 
+Using gdb ([manual here](https://sourceware.org/gdb/current/onlinedocs/gdb.html/index.html#Top)), also look at the TUI inteface section), put a breakpoint just before the call to printdec (```bl _printdec```) and display the value of the ```r``` variable. 
 Single step the assembly language using gdb with the ```nexti``` command
 and understand the operation of the program. Show the sequence of commands that you need in gdb to step ```_printdec``` and display the register values.
 
