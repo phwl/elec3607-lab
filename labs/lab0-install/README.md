@@ -8,8 +8,8 @@ This is a lab to set up your Raspberry Pi for ELEC3607.
     - Apply the customisation settings and write the image. 
 
 2. Configure Network.
-    - Boot the RPi using an external keyboard, mouse and monitor connected to your RPi. For the monitors in Lab 630, you need to press the button below to switch to HDMI.
-![](button.jpeg)
+    - Boot the RPi using an external keyboard, mouse and monitor connected to your RPi. 
+![](connecttoRPi.jpeg)
     - Configure your wireless network. At the University of Sydney, the settings are: Wi-Fi security="WPA & WPA2 Enterprise", Authentication="Protected EAP (PEAP), select No CA certificate is required, Username=(your unikey) and Password=(your USyd password).
 
 ![](wifi.jpeg)
