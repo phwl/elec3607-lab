@@ -4,9 +4,10 @@ This lab involves soldering the components for the Si5351 Clock Generator on the
 
 ## Part A - Construction
 #### Question 1 - Soldering (100%)
-The schematic for the PCB is available [here](BBBSchematic.jpg).
 
-Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram below to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+
+![](BBBSchematic.jpg)
 
 In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
 
