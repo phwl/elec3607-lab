@@ -132,23 +132,23 @@ While you can complete all the lab work directly on the Raspberry Pi using the l
     * Open Command Prompt/PowerShell (Windows) or Terminal (Mac/Linux) on your computer.
 
     * Enter the following command, replacing the placeholders:
-    ```bash
-    $ ssh elec3607@123.124.125.126
-    ```
+       ```bash
+       $ ssh elec3607@123.124.125.126
+       ```
 
       "elec3607" would be replaced with the username you set for the Raspberry Pi in lab 0 and "123.124.125.126" would be replaced with the IP address you found in step 1.
 
     * You will be prompted to enter the password of the Raspberry Pi. Once entered correctly you should be connected to the Raspberry Pi.
 
     A quick test you can do is the following:
-    ```bash
-     # run the following command on your computer:
-     $ echo "Hello World!" > hello.txt
-     # on the Raspberry Pi, you should now be able to see the file with:
-     $ ls
-     # you can also try:
-     $ cat hello.txt
-    ```
+       ```bash
+        # run the following command on your computer:
+        $ echo "Hello World!" > hello.txt
+        # on the Raspberry Pi, you should now be able to see the file with:
+        $ ls
+        # you can also try:
+        $ cat hello.txt
+       ```
 
 
     * If you forgot to enable SSH: When you created the Raspberry Pi image you may have forgotten to enable SSH, if this is the case you can find various methods to enable it in the Raspberry Pi documentation (learning to read documentation will be a very useful skill for this course!).
