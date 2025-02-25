@@ -124,3 +124,36 @@ update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-2712
     - If you have not used Linux before, read this tutorial: <https://ubuntu.com/tutorials/command-line-for-beginners>
     - Before next week, if you are not familiar with a Linux editor I recommend learning Vim: <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>
     
+5. SSH (Patrick Gaft)
+While you can complete all the lab work directly on the Raspberry Pi using the lab's peripherals, you may find it useful to connect via SSH from your own computer. This allows you to transfer data and execute commands on the Raspberry Pi remotely.
+
+To connect via SSH:
+
+    a. Find the Raspberry Pi's IP address (as found in lab 0).
+
+    b. Open Command Prompt/PowerShell (Windows) or Terminal (Mac/Linux) on your computer.
+
+    c. Enter the following command, replacing the placeholders:
+    ```bash
+    $ ssh elec3607@123.124.125.126
+    ```
+
+      "elec3607" would be replaced with the username you set for the Raspberry Pi in lab 0 and "123.124.125.126" would be replaced with the IP address you found in step 1.
+
+    d. You will be prompted to enter the password of the Raspberry Pi. Once entered correctly you should be connected to the Raspberry Pi.
+
+    A quick test you can do is the following:
+    ```bash
+     # run the following command on your computer:
+     $ echo "Hello World!" > hello.txt
+     # on the Raspberry Pi, you should now be able to see the file with:
+     $ ls
+     # you can also try:
+     $ cat hello.txt
+    ```
+
+
+    e. If you forgot to enable SSH:
+
+    When you created the Raspberry Pi image you may have forgotten to enable SSH, if this is the case you can find various methods to enable it in the Raspberry Pi documentation (learning to read documentation will be a very useful skill for this course!).
+
