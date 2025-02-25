@@ -136,7 +136,7 @@ While you can complete all the lab work directly on the Raspberry Pi using the l
        $ ssh elec3607@123.124.125.126
        ```
 
-      "elec3607" would be replaced with the username you set for the Raspberry Pi in lab 0 and "123.124.125.126" would be replaced with the IP address you found in step 1.
+       "elec3607" would be replaced with the username you set for the Raspberry Pi in lab 0 and "123.124.125.126" would be replaced with the IP address you found in step 1.
 
     * You will be prompted to enter the password of the Raspberry Pi. Once entered correctly you should be connected to the Raspberry Pi.
 
