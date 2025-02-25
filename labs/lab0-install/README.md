@@ -151,7 +151,5 @@ While you can complete all the lab work directly on the Raspberry Pi using the l
     ```
 
 
-    * If you forgot to enable SSH:
-
-    When you created the Raspberry Pi image you may have forgotten to enable SSH, if this is the case you can find various methods to enable it in the Raspberry Pi documentation (learning to read documentation will be a very useful skill for this course!).
+    * If you forgot to enable SSH: When you created the Raspberry Pi image you may have forgotten to enable SSH, if this is the case you can find various methods to enable it in the Raspberry Pi documentation (learning to read documentation will be a very useful skill for this course!).
 
