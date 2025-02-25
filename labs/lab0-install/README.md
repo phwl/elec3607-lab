@@ -125,9 +125,7 @@ update-initramfs: Generating /boot/initrd.img-6.1.0-rpi7-rpi-2712
     - Before next week, if you are not familiar with a Linux editor I recommend learning Vim: <https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/>
     
 5. SSH (Patrick Gaft)
-While you can complete all the lab work directly on the Raspberry Pi using the lab's peripherals, you may find it useful to connect via SSH from your own computer. This allows you to transfer data and execute commands on the Raspberry Pi remotely.
-
-To connect via SSH:
+While you can complete all the lab work directly on the Raspberry Pi using the lab's peripherals, you may find it useful to connect via SSH from your own computer. This allows you to transfer data and execute commands on the Raspberry Pi remotely. To connect via ssh:
 
     * Find the Raspberry Pi's IP address (as done earlier)
 
