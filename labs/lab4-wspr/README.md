@@ -204,9 +204,9 @@ This should result in the display below and the VU meter will display the level 
 
 Finally, do the following and explain the purpose of these commands.
 ```bash
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-sink 176
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl set-default-source 176
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ pactl info
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr.soln $ pactl set-default-sink 176
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr.soln $ pactl set-default-source 176
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr.soln $ pactl info
 Server String: /run/user/1000/pulse/native
 Library Protocol Version: 35
 Server Protocol Version: 35
@@ -265,8 +265,8 @@ In the parecfile directory, ```parecfile.c``` is a program that records some dat
 
 Unfortunately, it doesn't compile
 ```bash
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr $ cd parecfile
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr/parecfile $ make
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ cd parecfile
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr/parecfile $ make
 gcc -Wall -g  -c parecfile.c  -o parecfile.o
 parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
    29 | #include <pulse/simple.h>
@@ -282,9 +282,9 @@ Study what this program does as you will need it for the following question.
 Using the ```parecfile/parecfile.c``` code as an example,
 modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file. Demonstrate that your program works by playing a file in the background and decoding it with your modified program:
 ```bash
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ paplay data/iq-16b.wav &
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr.soln $ paplay data/iq-16b.wav &
 [1] 10353
-elec3607@raspberrypi:~/elec3607-course/labs/lab4-wspr.soln $ ./pa-wsprcan/k9an-wsprd 
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr.soln $ ./pa-wsprcan/k9an-wsprd 
 mode  -1 -2.0   0.001437 -2  VK2RG QF56 30 
 mode -19 -1.8   0.001455 -1  VK3GOD QF23 23 
 mode -20 -1.9   0.001478 -1  VK4YEH QG62 37 
