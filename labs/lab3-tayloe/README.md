@@ -13,7 +13,7 @@ A subcircuit of the schematic from the previous lab shows the RF amplifier with 
 Now measure the frequency response of the RF amplifier on your PCB using a waveform generator and oscilloscope. What is the small-signal gain for an approximately 20 mV peak-to-peak sine wave input at 7.001 MHz? Is it the expected value?
 
 ## Part B - Tayloe Detector 
-### Question 1 - Tayloe Detector Measurement (70%)
+### Question 1 - Tayloe Detector Simulation (30%)
 
 The Tayloe Detector simulation explained in the lectures is available in this directory as ```tayloe-ideal.asc```. 
 Referring to the documentation, explain the purpose of the LTspice directive:
@@ -30,8 +30,18 @@ Place these new plots in your lab book and explain how they relate to the input 
 
 ![](mixersim.png)
 
-Now test your PCB by using a function generator with sine wave inputs at 7.005 MHz, 7.006 MHz and 7.007 MHz and show that it can mix with a carrier of 7 MHz to achieve outputs at 5, 6 and 7 kHz on both the I and Q outputs. To do this you will need to reprogram your Si5351 to have a 7 MHz output. Describe the expected behaviour in your lab book and include screen shots to demonstrate that it was achieved. 
-
-### Question 2 - Tayloe Detector LTSpice Simulation (30%)
-
 The initial simulation provided is for a simulation at 1 MHz. WSPR transmits a 4-FSK message. Change the simulation so fc=7.0386 MHz and FRQ will step from 7.04010 MHz over the exact range of values of a legal WSPR transmission (i.e. 4-FSK with a 1.4648 Hz tone separation). Make an fft plot of I_out and n005 similar to the one above. Explain the changes you made in your lab book. Note that I have had issues with LTSpice on the M1 Mac crashing but found that I could get it to work by changing the ```.step param FRQ``` command.
+
+### Question 2 - Tayloe Detector Measurement (40%)
+
+Now test your PCB by using a function generator with sine wave inputs to MIXIN at 7.005 MHz, 7.006 MHz and 7.007 MHz and show that it can mix with a carrier of 7 MHz to achieve outputs at 5, 6 and 7 kHz on Qout. To do this you will need to reprogram your Si5351 to have a 7 MHz output. 
+
+Describe the expected behaviour in your lab book and include screen shots to demonstrate what you measured.
+
+Using attenuators to reduce the output of the signal generator, 
+measure the minimum discernable signal (MDS) from RFIN, through the RF amplifier and Tayloe detector to Qout.
+
+### Question 3 - Iout Signal (30%)
+Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit to fix this issue and include an oscilloscope trace of the transfer function for both signals in your lab book. 
+
+
