@@ -34,12 +34,12 @@ The initial simulation provided is for a simulation at 1 MHz. WSPR transmits a 4
 
 ### Question 2 - Tayloe Detector Measurement (40%)
 
-Now test your PCB by using a function generator with sine wave inputs to MIXIN at 7.005 MHz, 7.006 MHz and 7.007 MHz and show that it can mix with a carrier of 7 MHz to achieve outputs at 5, 6 and 7 kHz on Qout. To do this you will need to reprogram your Si5351 to have a 7 MHz output. 
-
+Now test your PCB by using a function generator with sine wave inputs to MIXIN at 7.005 MHz, 7.006 MHz and 7.007 MHz and show that it can mix with a carrier of 7 MHz to achieve baseband outputs at 5, 6 and 7 kHz on Qout. To do this you will need to reprogram your Si5351 to have a 7 MHz output. 
 Describe the expected behaviour in your lab book and include screen shots to demonstrate what you measured.
 
-Using attenuators to reduce the output of the signal generator, 
-measure the minimum discernable signal (MDS) from RFIN, through the RF amplifier and Tayloe detector to Qout.
+Using attenuators to reduce the output of the signal generator, measure the minimum discernable signal (MDS) 
+from RFIN, through the RF amplifier and Tayloe detector to Qout. To do this, you can use the FFT math feature of the
+oscilloscope to determine when the baseband output disappears below the noise.
 
 ### Question 3 - Iout Signal (30%)
 Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit to fix this issue and include an oscilloscope trace of the transfer function for both signals in your lab book. 
