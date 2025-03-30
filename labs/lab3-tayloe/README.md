@@ -24,7 +24,7 @@ in the simulation.
 
 Run the simulation and display the voltage of nodes I_out and Q_out in a plot. Now modify the simulation so it operates at a carrier frequency of 7 MHz (i.e. the 4-phase clocks should operate at 7 MHz rather than 1 MHz) and downconverts the following input signal
 ```
-.step param FRQ 4005k 4007k 1k
+.step param FRQ 7005k 7007k 1k
 ```
 Place these new plots in your lab book and explain how they relate to the input signal created by V1. Also try View->FFT to obtain a frequency domain plot of V(I_out) and the input, V(n005) as shown below.
 
