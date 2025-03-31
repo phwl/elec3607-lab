@@ -57,6 +57,6 @@ Here is an oscilloscope capture of the downconverted, baseband signal (Iout), wh
 ### Question 3 - Iout Signal (30%)
 Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit board (PCB) to fix this issue (by current a track and adding a new wire). Include a photograph of your modified PCB and an oscilloscope trace of the transfer function for both signals in your lab book. 
 
-If this is done correctly, if you put the X-channel on Iout, Y-channel on Qout and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
+If this is done correctly, if you put the X-channel on Iout (purple), Y-channel on Qout (blue) and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
 
 ![](cro-xy.png)
