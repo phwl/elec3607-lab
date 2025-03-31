@@ -59,4 +59,4 @@ Measure the transfer function of the Iout signal. You will note that it is not t
 
 If this is done correctly, if you put the X-channel on Iout, Y-channel on Qout and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
 
-![](mds-baseband.png)
+![](cro-xy.png)
