@@ -47,6 +47,16 @@ Using attenuators to reduce the output of the signal generator, measure the mini
 from RFIN, through the RF amplifier and Tayloe detector to Qout. To do this, you can use the FFT math feature of the
 oscilloscope to determine when the baseband output disappears below the noise.
 
+Here is an oscilloscope capture of the input signal from the signal generator (RFIN), just above the noise floor. The signal generator was set to approx 30 mV and 2x 20dB attenuators inserted in the path.
+![](mds-carrier.png)
+
+Here is an oscilloscope capture of the downconverted, baseband signal (Iout), which can be seen around 2 kHz. 
+![](mds-baseband.png)
+
 
 ### Question 3 - Iout Signal (30%)
 Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit board (PCB) to fix this issue (by current a track and adding a new wire). Include a photograph of your modified PCB and an oscilloscope trace of the transfer function for both signals in your lab book. 
+
+If this is done correctly, if you put the X-channel on Iout, Y-channel on Qout and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
+
+![](mds-baseband.png)
