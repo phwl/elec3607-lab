@@ -41,7 +41,7 @@ Describe the expected behaviour in your lab book and include screen shots to dem
  * The Qout output of the opamp integrator.
 Unfortunately, a subset of the MIXQ+, MIXQ-, MIXI+ and MIXI-, I+, I-, Q+, Q- outputs have been mislabelled. Starting 
 from the MIXCLK0 and MIXCLK90 inputs, explain the operation of the Tayloe detector circuit and write the correct labels 
-in your lab book.
+in your lab book. Explain why the existing connections still work.
 
 Using attenuators to reduce the output of the signal generator, measure the minimum discernable signal (MDS) 
 from RFIN, through the RF amplifier and Tayloe detector to Qout. To do this, you can use the FFT math feature of the
@@ -49,6 +49,4 @@ oscilloscope to determine when the baseband output disappears below the noise.
 
 
 ### Question 3 - Iout Signal (30%)
-Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit to fix this issue and include an oscilloscope trace of the transfer function for both signals in your lab book. 
-
-
+Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit board (PCB) to fix this issue (by current a track and adding a new wire). Include a photograph of your modified PCB and an oscilloscope trace of the transfer function for both signals in your lab book. 
