@@ -123,9 +123,9 @@ You can see that MySink.monitor and MySink are available. Note the sources and s
 
 Do the following and explain the purpose of these commands.
 ```bash
-elec3607@raspberrypi:~/lab4-wspr.soln $ pactl set-default-sink 96
-elec3607@raspberrypi:~/lab4-wspr.soln $ pactl set-default-source 96
-elec3607@raspberrypi:~/lab4-wspr.soln $ pactl info  
+elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-sink 96
+elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-source 96
+elec3607@raspberrypi:~/lab4-wspr $ pactl info  
 Server String: /run/user/1000/pulse/native
 Library Protocol Version: 35
 Server Protocol Version: 35
@@ -147,27 +147,27 @@ Cookie: 4b1b:6f37
 ```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command but unfortunately, it is missing the fft3 library.
 
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
+elec3607@raspberrypi:~/lab4-wspr $ make wspr
 (cd wsprcan; make)
-make[1]: Entering directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make[1]: Entering directory '/home/elec3607/lab4-wspr/wsprcan'
 gcc -c -o wsprd.o wsprd.c -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
 wsprd.c:37:10: fatal error: fftw3.h: No such file or directory
    37 | #include <fftw3.h>
       |          ^~~~~~~~~
 compilation terminated.
 make[1]: *** [Makefile:8: wsprd.o] Error 1
-make[1]: Leaving directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make[1]: Leaving directory '/home/elec3607/lab4-wspr/wsprcan'
 make: *** [Makefile:5: wspr] Error 2
 ```
 
 Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wpsr``` should compile and run successfully.
 
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
+elec3607@raspberrypi:~/lab4-wspr $ make wspr
 (cd wsprcan; make)
-make[1]: Entering directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make[1]: Entering directory '/home/elec3607/lab4-wspr/wsprcan'
 make[1]: Nothing to be done for 'all'.
-make[1]: Leaving directory '/home/elec3607/elec3607-lab/labs/lab4-wspr/wsprcan'
+make[1]: Leaving directory '/home/elec3607/lab4-wspr/wsprcan'
 sox data/iq-16b.wav -c 1 -t wav -r 12000 -b 16 mono.wav
 wsprcan/k9an-wsprd mono.wav
 mono  -1 -1.3   0.001437 -1  VK2RG QF56 30 
@@ -184,8 +184,8 @@ In the parecfile directory, ```parecfile.c``` is a program that records some dat
 
 Unfortunately, it doesn't compile
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ cd parecfile
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr/parecfile $ make
+elec3607@raspberrypi:~/lab4-wspr $ cd parecfile
+elec3607@raspberrypi:~/lab4-wspr/parecfile $ make
 gcc -Wall -g  -c parecfile.c  -o parecfile.o
 parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
    29 | #include <pulse/simple.h>
