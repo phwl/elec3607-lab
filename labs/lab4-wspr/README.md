@@ -121,7 +121,8 @@ elec3607@raspberrypi:~/lab4-wspr $ pactl list short sinks
 ```
 You can see that MySink.monitor and MySink are available. Note the sources and sinks are SUSPENDED but will change to Running when in use.
 
-Do the following and explain the purpose of these commands.
+Do the following and explain the purpose of these commands which utilise
+a very powerful feature of pulseaudio.
 ```bash
 elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-sink 96
 elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-source 96
