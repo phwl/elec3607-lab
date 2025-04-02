@@ -4,7 +4,7 @@ This lab involves modifying a WSPR-decoder to use pulseaudio on a RPi4. Once thi
 
 After completing this lab, you should understand how to capture i/q samples from your radio, convert them to the right format for the k9an-wsprd program, and decode WSPR. You will have a working WSPR decoder, interfaced to pulseaudio.
 
-First cd to your ```elec3607-lab``` directory and type ```git pull``` to ensure you have the latest version of the lab. 
+First cd to your ```elec3607-lab``` directory and type ```git pull``` to ensure you have the latest version of the lab. Also, do a ```sudo apt update``` to make sure you have the latest Debian distribution files```.
 
 ## Question 1 -  Pipewire (10\%)
 
