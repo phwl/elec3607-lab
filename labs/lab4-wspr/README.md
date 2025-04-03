@@ -107,13 +107,13 @@ elec3607@raspberrypi:~ $ pactl load-module module-null-sink sink_name    =MySink
 
 Now let's list the sources and sinks:
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ pactl list short sources
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl list short sources
 72	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo.monitor	PipeWire	s16le 2ch 48000Hz	SUSPENDED
 73	alsa_input.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	SUSPENDED
 74	alsa_output.platform-bcm2835_audio.stereo-fallback.monitor	PipeWirs16le 2ch 48000Hz	SUSPENDED
 75	alsa_output.platform-fef00700.hdmi.hdmi-stereo.monitor	PipeWire	s32le 2ch 48000Hz	SUSPENDED
 96	MySink.monitor	PipeWire	s16le 1ch 12000Hz	SUSPENDED
-elec3607@raspberrypi:~/lab4-wspr $ pactl list short sinks
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl list short sinks
 72	alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo	PipeWire	s16le 2ch 48000Hz	SUSPENDED
 74	alsa_output.platform-bcm2835_audio.stereo-fallback	PipeWire	s16le 2ch 48000Hz	SUSPENDED
 75	alsa_output.platform-fef00700.hdmi.hdmi-stereo	PipeWire	s32le 2ch 48000Hz	SUSPENDED
@@ -124,9 +124,9 @@ You can see that MySink.monitor and MySink are available. Note the sources and s
 Do the following and explain the purpose of these commands which utilise
 a very powerful feature of pulseaudio.
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-sink 96
-elec3607@raspberrypi:~/lab4-wspr $ pactl set-default-source 96
-elec3607@raspberrypi:~/lab4-wspr $ pactl info  
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-sink 96
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-source 96
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl info  
 Server String: /run/user/1000/pulse/native
 Library Protocol Version: 35
 Server Protocol Version: 35
@@ -148,7 +148,7 @@ Cookie: 4b1b:6f37
 ```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command but unfortunately, it is missing the fft3 library.
 
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ make wspr
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
 (cd wsprcan; make)
 make[1]: Entering directory '/home/elec3607/lab4-wspr/wsprcan'
 gcc -c -o wsprd.o wsprd.c -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
@@ -164,7 +164,7 @@ make: *** [Makefile:5: wspr] Error 2
 Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wpsr``` should compile and run successfully.
 
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ make wspr
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
 (cd wsprcan; make)
 make[1]: Entering directory '/home/elec3607/lab4-wspr/wsprcan'
 make[1]: Nothing to be done for 'all'.
@@ -185,8 +185,8 @@ In the parecfile directory, ```parecfile.c``` is a program that records some dat
 
 Unfortunately, it doesn't compile
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ cd parecfile
-elec3607@raspberrypi:~/lab4-wspr/parecfile $ make
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ cd parecfile
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr/parecfile $ make
 gcc -Wall -g  -c parecfile.c  -o parecfile.o
 parecfile.c:29:10: fatal error: pulse/simple.h: No such file or directory
    29 | #include <pulse/simple.h>
@@ -202,7 +202,7 @@ Study what this program does as you will need it for the following question.
 Using the ```parecfile/parecfile.c``` code as an example,
 modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file. Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
 ```bash
-elec3607@raspberrypi:~/lab4-wspr $ cat wspr-test
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ cat wspr-test
 #!/bin/bash
 
 # this plays an audio file in the background and runs pa-wsprcan
@@ -211,7 +211,7 @@ date
 paplay data/iq-16b.wav &
 ./pa-wsprcan/k9an-wsprd 
 date
-elec3607@raspberrypi:~/lab4-wspr $ ./wspr-test
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ ./wspr-test
 running paplay at Wed  2 Apr 14:54:35 AEDT 2025
 mode  -1 -2.0   0.001437 -2  VK2RG QF56 30 
 mode -19 -1.8   0.001455 -1  VK3GOD QF23 23 
