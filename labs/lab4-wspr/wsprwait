@@ -3,7 +3,7 @@
 
 set AUDIODEV=hw:1
 
-DECODER=wsprcan/k9an-wsprd 
+DECODER=pa-wsprcan/k9an-wsprd 
 TMPOUT='_wsprd.out'
 
 decode () {
