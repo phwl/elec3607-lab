@@ -50,7 +50,7 @@ oscilloscope to determine when the baseband output disappears below the noise.
 Here is an oscilloscope capture of the input signal from the signal generator (RFIN), just above the noise floor. The signal generator was set to approx 30 mV and 2x 20dB attenuators inserted in the path.
 ![](mds-carrier.png)
 
-Here is an oscilloscope capture of the downconverted, baseband signal (Iout), which can be seen around 2 kHz. 
+Here is an oscilloscope capture of the downconverted, baseband signal (Qout), which can be seen around 2 kHz. 
 ![](mds-baseband.png)
 
 
