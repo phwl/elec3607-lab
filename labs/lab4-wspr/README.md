@@ -102,7 +102,7 @@ Cookie: 52b0:45f4
 
 We are going to create a virtual audio sink which is mono and 12000 samples a second. This is done using:
 ```bash
-elec3607@raspberrypi:~ $ pactl load-module module-null-sink sink_name    =MySink format=s16le channels=1 rate=12000
+elec3607@raspberrypi:~ $ pactl load-module module-null-sink sink_name=MySink format=s16le channels=1 rate=12000
 ```
 
 Now let's list the sources and sinks:
