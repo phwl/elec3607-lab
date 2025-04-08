@@ -161,7 +161,7 @@ make[1]: Leaving directory '/home/elec3607/lab4-wspr/wsprcan'
 make: *** [Makefile:5: wspr] Error 2
 ```
 
-Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wpsr``` should compile and run successfully.
+Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wspr``` should compile and run successfully.
 
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
@@ -200,7 +200,7 @@ Study what this program does as you will need it for the following question.
 ## Question 4 - Modifying wsprcan/wsprd.c (60\%)
 
 Using the ```parecfile/parecfile.c``` code as an example,
-modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file (do this in a copy of the wsprcan directory called pa-wsprcan that can be made using ```cp -r wsprcan pa-wpsrcan```). Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
+modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file (do this in a copy of the wsprcan directory called pa-wsprcan that can be made using ```cp -r wsprcan pa-wsprcan```). Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ cat wspr-test
 #!/bin/bash
