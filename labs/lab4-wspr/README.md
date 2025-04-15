@@ -161,7 +161,7 @@ make[1]: Leaving directory '/home/elec3607/lab4-wspr/wsprcan'
 make: *** [Makefile:5: wspr] Error 2
 ```
 
-Figure out how to fix this issue by installing the appropriate Debian libraries. When successful ```make wspr``` should compile and run successfully.
+Figure out how to fix this issue by installing the appropriate Debian libraries. You will also need to install ```sox```. When successful ```make wspr``` should compile and run successfully.
 
 ```bash
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ make wspr
