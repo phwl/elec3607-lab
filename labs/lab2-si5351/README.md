@@ -3,13 +3,18 @@
 This lab involves soldering the components for the Si5351 Clock Generator on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
 
 ## Part A - Construction
-#### Question 1 - Soldering (100%)
+#### Question 1 - Soldering and using the Oscilloscope (100%)
 
 Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram below to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
 ![](BBBSchematic.jpg)
 
-In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode.
+In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Watch this video that illustrates oscilloscope best practices.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AJYpiPGySEs?si=-POz_OkwUFAFQf_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode. 
+
 
 Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator for working).
 
