@@ -124,8 +124,8 @@ You can see that MySink.monitor and MySink are available. Note the sources and s
 Do the following and explain the purpose of these commands which utilise
 a very powerful feature of pulseaudio.
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-sink 96
-elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-source 96
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-sink 72
+elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl set-default-source 72
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ pactl info  
 Server String: /run/user/1000/pulse/native
 Library Protocol Version: 35
