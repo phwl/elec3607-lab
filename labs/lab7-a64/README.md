@@ -173,7 +173,7 @@ Create an annotated version of ```printdec.s```. Put this in your lab book and m
 ### Part 2 - Assembly Language version of printdec (40%)
 When doing this exercise, it is unlikely your program will work first time so use the single step and register display facilities in gdb to debug your work. Note that you solution must be hand-written assembly language - we can tell the difference!
 
-Note that _printdec uses the frame pointer for temporary variables. Rewrite in A64 assembly language using registers.
+Rewrite printdec in A64 assembly language but keep all the temporary values in registers (instead of using the frame pointer in the listing of Part 1).
 
 ### Part 3 - Assembly Language version of printdec (30%)
 From Part 2, you should have noticed that printdec() prints the string in the reverse order. Modify your assembly language program to fix this bug. Do this by buffering the data inside printdec() and then printing out the buffer in reverse.  
