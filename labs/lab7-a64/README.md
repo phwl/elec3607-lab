@@ -7,7 +7,7 @@ The goals of this lab are:
     * Learn to use the gdb debugger
     * Understand stack frames and function calls
 
-ARM Linux will be used for this lab. Refer to [Learn the architecture - A64 Instruction Set Architecture Guide](https://developer.arm.com/documentation/102374/0101) for information ob the A64 instruction set architecture. 
+ARM Linux will be used for this lab. Refer to [Learn the architecture - A64 Instruction Set Architecture Guide](https://developer.arm.com/documentation/102374/0101) for information on the A64 instruction set architecture. 
 
 The following C program, printdec, prints the decimal value of 10 random numbers.
 
@@ -165,15 +165,14 @@ and understand the operation of the program. Show the sequence of commands that 
 
 ![](gdbtui.png)
 
-Note, the code that computes  ```n % 10``` and ```n / 10``` is really tricky. You don't need to annotate that in your answer (but can do so for extra credit in
-Part 4).
-
 Create an annotated version of ```printdec.s```. Put this in your lab book and make sure you explain the correspondence with each line of C. You can remove the .cfi and .loc directives in your answer as these are used to help the debugger relate the code back to the original C.
 
-### Part 2 - Assembly Language version of printdec (40%)
-When doing this exercise, it is unlikely your program will work first time so use the single step and register display facilities in gdb to debug your work. Note that you solution must be hand-written assembly language - we can tell the difference!
+Note, the code that computes  ```n % 10``` and ```n / 10``` is really tricky. You don't need to annotate that in your answer (but can do so for extra credit in Part 4).
 
+### Part 2 - Assembly Language version of printdec (40%)
 Rewrite printdec in A64 assembly language but keep all the temporary values in registers (instead of using the frame pointer in the listing of Part 1).
+
+When doing this exercise, it is unlikely your program will work first time so use the single step and register display facilities in gdb to debug your work. Note that you solution must be hand-written assembly language - we can tell the difference!
 
 ### Part 3 - Assembly Language version of printdec (30%)
 From Part 2, you should have noticed that printdec() prints the string in the reverse order. Modify your assembly language program to fix this bug. Do this by buffering the data inside printdec() and then printing out the buffer in reverse.  
