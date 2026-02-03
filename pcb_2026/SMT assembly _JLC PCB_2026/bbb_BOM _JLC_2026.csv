@@ -1,0 +1,37 @@
+Comment,Designator,Footprint
+0.1uF,"C1,C3,C4,C5,C6,C7,C8,C9,C10",Capacitor_SMD:C_0805_2012Metric
+0.01uF,C2,Capacitor_SMD:C_0805_2012Metric
+3300pF,"C11,C12",Capacitor_SMD:C_0805_2012Metric
+100nF,C13,Capacitor_SMD:C_0805_2012Metric
+10uF,C14,Capacitor_SMD:C_0805_2012Metric
+33pF,"C20,C25,C29",Capacitor_SMD:C_0805_2012Metric
+27pF,"C21,C26,C30",Capacitor_SMD:C_0805_2012Metric
+270pF,C22,Capacitor_SMD:C_0805_2012Metric
+680pF,"C23,C27,C31",Capacitor_SMD:C_0805_2012Metric
+22pF,"C24,C28,C32",Capacitor_SMD:C_0805_2012Metric
+TestPoint_Small,"CLK0_TP4,CLK1_TP5,Iout_TP6,Qout_TP7,RFIN_TP7,RFOUT_TP8,SCL_TP2,SDA_TP3,XA_TP1",TestPoint:TestPoint_Keystone_5000-5004_Miniature
+LED yellow,D1,Diode_SMD:D_0603_1608Metric
+LED blue,D2,Diode_SMD:D_0603_1608Metric
+GND BRIDGE,GND_TP0,TestPoint:TestPoint_Bridge_Pitch7.62mm_Drill1.3mm
+Conn_02x14_Odd_Even,J1,Connector_PinHeader_2.54mm:PinHeader_2x14_P2.54mm_Vertical
+Conn_02x20_Odd_Even,J2,Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical
+FC68131,J3,AudioJack:FC68131
+Inductor L1,J4,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-2-2.54_1x02_P2.54mm_Horizontal"
+Inductor L2,J5,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-2-2.54_1x02_P2.54mm_Horizontal"
+Inductor L3,J6,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MPT-0,5-2-2.54_1x02_P2.54mm_Horizontal"
+470,"R1,R3",Resistor_SMD:R_0805_2012Metric
+47,R2,Resistor_SMD:R_0805_2012Metric
+220,R4,Resistor_SMD:R_0805_2012Metric
+4.7k,"R5,R6",Resistor_SMD:R_0805_2012Metric
+100,R7,Resistor_SMD:R_0805_2012Metric
+10K,"R8,R9",Resistor_SMD:R_0805_2012Metric
+62,R10,Resistor_SMD:R_0805_2012Metric
+200,R11,Resistor_SMD:R_0805_2012Metric
+50,"R20,R21",Resistor_SMD:R_0805_2012Metric
+THS4304,U1,Package_TO_SOT_SMD:SOT-23-5
+Si5351A-B-GT,U2,Package_SO:MSOP-10_3x3mm_P0.5mm
+TS3A5017,U3,Package_SO:SOIC-16_3.9x9.9mm_P1.27mm
+TL972,U4,Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm
+LD1117S33TR_SOT223,U5,Package_TO_SOT_SMD:SOT-223-3_TabPin2
+BWSMA-KE-P001,U6,BWSMA-KE-P001:BWSMA-KE-P001
+Crystal,Y1,Crystal:Crystal_SMD_TXC_7M-4Pin_3.2x2.5mm
