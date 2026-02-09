@@ -51,7 +51,8 @@ $ ifconfig
 ```
 The output image is shown below. We can see that the Ethernet address is 10.70.152.58.
 ![16](./image/16.png)
-Since the AUP-ZU3 does not have built-in wireless networking, the most convenient way for Windows users to operate the AUP-ZU3 is to use a SSH client (such as [MobaXterm](https://mobaxterm.mobatek.net/)) to access the board via its Ethernet IP address.
+
+Since the AUP-ZU3 does not have built-in wireless networking, the most convenient way for Windows users to operate the AUP-ZU3 is to use a SSH client (such as [MobaXterm](https://mobaxterm.mobatek.net/)) to access the board via its Ethernet IP address ```10.70.152.58```. 
 
 ### 2.2 MacOS
 ### 2.2.1 Serial Port (UART)
