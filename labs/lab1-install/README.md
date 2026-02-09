@@ -91,7 +91,7 @@ DESCRIPTION
 
 ...
 ```
-In particular, the way to kill all windows and terminate screen(1) is with C-a C-\\.
+In particular, the way to kill all windows and terminate screen(1) is with C-a C-\\ (control-A control-\\).
 
 Connect to the serial port and hit Return a few times to find
 the login prompt:
