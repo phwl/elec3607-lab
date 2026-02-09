@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# this plays an audio file in the background and runs pa-wsprcan
+echo -n "running paplay at "
+date
+paplay data/iq-16b.wav &
+./pa-wsprcan/k9an-wsprd 
+date
