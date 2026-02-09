@@ -65,7 +65,7 @@ The above shows two serial ports and the one actually connected to the AUP-ZU3 i
 
 The program screen(1) allows connections between a MacOS machine and 
 a serial port. It does the equivalent thing to Putty under windows. As with any
-command-line program, you can get the manual entry 
+command-line program, you can get the manual entry via
 ```bash
 $ man screen
 
@@ -91,7 +91,7 @@ DESCRIPTION
 
 ...
 ```
-In particular, the way to kill all windows and terminate screen(1) is with C-a C-\.
+In particular, the way to kill all windows and terminate screen(1) is with C-a C-\\.
 
 Connect to the serial port and hit Return a few times to find
 the login prompt:
