@@ -52,8 +52,6 @@ $ ifconfig
 The output image is shown below. We can see that the Ethernet address is 10.70.152.58.
 ![16](./image/16.png)
 
-Since the AUP-ZU3 does not have built-in wireless networking, the most convenient way for Windows users to operate the AUP-ZU3 is to use a SSH client (such as [MobaXterm](https://mobaxterm.mobatek.net/)) to access the board via its Ethernet IP address ```10.70.152.58```. 
-
 ### 2.2 MacOS
 ### 2.2.1 Serial Port (UART)
 First identify the serial port used for connection to the AUP-ZU3
@@ -121,10 +119,11 @@ eth0      Link encap:Ethernet  HWaddr C8:4D:44:27:B4:36
 ...
 ```
 
-In the example above, the address is ```10.70.152.58```. 
+In the example above, the IP address is ```10.70.152.58```. 
 
 ## 3. Login via SSH and Retrieve Repository
-Connect to the machine via ethernet (from another terminal window on you MacOS machine), login and clone the ELEC3607 lab repository:
+Connect to the AUP-ZU3 via Ethernet (from another terminal window on you MacOS machine), login and clone the ELEC3607 lab repository:
+On MacOS is is done as below, and in Windows the same thing can be done via Putty 
 ```bash
 $ ssh petalinux@10.70.152.58
 petalinux@10.70.152.58's password: 
