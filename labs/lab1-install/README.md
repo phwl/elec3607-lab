@@ -55,7 +55,7 @@ Since the AUP-ZU3 does not have built-in wireless networking, the most convenien
 
 ### 2.2 MacOS
 ### 2.2.1 Serial Port (UART)
-First identify the serial port used for connection to the AUP-ZU3. If 
+First identify the serial port used for connection to the AUP-ZU3
 ```bash
 # ls /dev/tty.usb*
 /dev/tty.usbserial-8802250000120
