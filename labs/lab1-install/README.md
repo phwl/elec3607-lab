@@ -63,7 +63,37 @@ First identify the serial port used for connection to the AUP-ZU3. If
 ```
 The above shows two serial ports and the one actually connected to the AUP-ZU3 is ```/dev/tty.usbserial-8802250000121``` (you can confirm by disconnecting the USB cable and the device should disappear).
 
-Then you can connect to the serial port and hit Return a few times to see
+The program screen(1) allows connections between a MacOS machine and 
+a serial port. It does the equivalent thing to Putty under windows. As with any
+command-line program, you can get the manual entry 
+```bash
+$ man screen
+
+SCREEN(1)                    General Commands Manual                    SCREEN(1)
+
+NAME
+       screen - screen manager with VT100/ANSI terminal emulation
+
+SYNOPSIS
+       screen [ -options ] [ cmd [ args ] ]
+       screen -r [[pid.]tty[.host]]
+       screen -r sessionowner/[[pid.]tty[.host]]
+
+DESCRIPTION
+       Screen is a full-screen window manager that multiplexes a physical
+       terminal between several processes (typically interactive shells).  Each
+       virtual terminal provides the functions of a DEC VT100 terminal and, in
+       addition, several control functions from the ISO 6429 (ECMA 48, ANSI
+       X3.64) and ISO 2022 standards (e.g. insert/delete line and support for
+       multiple character sets).  There is a scrollback history buffer for each
+       virtual terminal and a copy-and-paste mechanism that allows moving text
+       regions between windows.
+
+...
+```
+In particular, the way to kill all windows and terminate screen(1) is with C-a C-\.
+
+Connect to the serial port and hit Return a few times to find
 the login prompt:
 ```
 $ screen /dev/tty.usbserial-8802250000121 115200
@@ -98,6 +128,7 @@ Connect to the machine via ethernet (from another terminal window on you MacOS m
 $ ssh petalinux@10.70.152.58
 petalinux@10.70.152.58's password: 
 Last login: Tue Nov  8 18:44:22 2022
+
 petalinux-8GB:~$ git clone https://github.com/phwl/elec3607-lab.git
 Cloning into 'elec3607-lab'...
 remote: Enumerating objects: 1542, done.
