@@ -92,7 +92,7 @@ eth0      Link encap:Ethernet  HWaddr C8:4D:44:27:B4:36
 
 In the example above, the address is ```10.70.152.58```. 
 
-3. Login via SSH and using git
+## 3. Login via SSH and Retrieve Repository
 Connect to the machine via ethernet (from another terminal window on you MacOS machine), login and clone the ELEC3607 lab repository:
 ```bash
 $ ssh petalinux@10.70.152.58
