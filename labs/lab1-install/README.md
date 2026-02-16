@@ -17,6 +17,7 @@ Before powering on the board, ensure that:
 1. The **micro-SD card** is inserted into the board’s SD slot.  
 2. The **JTAG / SD switch** on the board is set to **SD** mode.  
 3. Connect the PROG-UART interface of the AUP-ZU3 board to the host PC via a USB-C cable.
+4. Connect a USB-C ethernet adaptor to the USB 3.0 DRP1 connector on the AUP-ZU3 and the Ethernet connector side to an appropriate network port. 
 
 If you see the **DONE** LED light turn on after powering on the board, congratulations — you have successfully booted the board!
 
@@ -102,7 +103,7 @@ petalinux-8GB login:
 The user name is **petalinux**, set your own password using the ```passwd''' command.
 
 ### 2.2.2. Network (via Ethernet)
-Plug the ethernet into the network and get the IP address using the ```ipconfig``` command
+Get the IP address using the ```ipconfig``` command
 
 ```bash
 $ ifconfig
