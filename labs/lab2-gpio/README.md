@@ -5,48 +5,26 @@ ways (libgpiod and mmap).
 
 ## 1. Installation (0%)
 To start, you should download all the lab materials for this course. With your 
-RPi connected to the internet, use the following command:
+AUP-ZU3 connected to the internet, use the following command:
 ```bash
-elec3607@raspberrypi:~ $ git clone https://github.com/phwl/elec3607-lab.git
+petalinux-8GB:~$ git clone https://github.com/phwl/elec3607-lab.git
 Cloning into 'elec3607-lab'...
-remote: Enumerating objects: 594, done.
-remote: Counting objects: 100% (223/223), done.
-remote: Compressing objects: 100% (165/165), done.
-remote: Total 594 (delta 84), reused 185 (delta 51), pack-reused 371
-Receiving objects: 100% (594/594), 53.54 MiB | 7.62 MiB/s, done.
-Resolving deltas: 100% (230/230), done.
+remote: Enumerating objects: 1596, done.
+remote: Counting objects: 100% (43/43), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 1596 (delta 29), reused 29 (delta 17), pack-reused 1553 (from 1)
+Receiving objects: 100% (1596/1596), 116.10 MiB | 12.53 MiB/s, done.
+Resolving deltas: 100% (907/907), done.
+Updating files: 100% (222/222), done.
+petalinux-8GB:~$ 
 ```
 This will create the directory ```elec3607-lab```. To go to the directory
-for Lab 1:
+for Lab 2:
 ```bash
-elec3607@raspberrypi:~ $ cd elec3607-lab/labs/lab1-gpio/
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ls
-libgpiod_blink.c  Makefile  mmap_blink.c  README.md
-```
-
-Also install the libgpiod library using the ```apt``` command. This needs
-to be run as a superuser via ```sudo``` since the library is installed in 
-a system directory (```/usr/lib/libgpiod.so```). This is done as below:
-
-```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ sudo apt install libgpiod-dev
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-Suggested packages:
-  libgpiod-doc
-The following NEW packages will be installed:
-  libgpiod-dev
-0 upgraded, 1 newly installed, 0 to remove and 18 not upgraded.
-Need to get 58.4 kB of archives.
-After this operation, 352 kB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian bookworm/main arm64 libgpiod-dev arm64 1.6.3-1+b3 [58.4 kB]
-Fetched 58.4 kB in 0s (140 kB/s)  
-Selecting previously unselected package libgpiod-dev:arm64.
-(Reading database ... 144701 files and directories currently installed.)
-Preparing to unpack .../libgpiod-dev_1.6.3-1+b3_arm64.deb ...
-Unpacking libgpiod-dev:arm64 (1.6.3-1+b3) ...
-Setting up libgpiod-dev:arm64 (1.6.3-1+b3) ...
+petalinux-8GB:~$ cd elec3607-lab/labs/lab2-gpio/
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ ls
+Makefile  README.md  libgpiod-ref.pdf  libgpiod_blink.c  mmap_blink.c
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ 
 ```
 
 ## 2. Libgpiod commands (20%)
@@ -71,174 +49,81 @@ gpiomon - wait for events on GPIO lines, specify which events to watch, how many
 
 Here are some usage examples from the Linux documentation
 ```bash
-elec3607@raspberrypi:~ $ gpioinfo
-gpiochip0 - 58 lines:
-	line   0:     "ID_SDA"       unused   input  active-high 
-	line   1:     "ID_SCL"       unused   input  active-high 
-	line   2:       "SDA1"       unused   input  active-high 
-	line   3:       "SCL1"       unused   input  active-high 
-	line   4:  "GPIO_GCLK"       unused   input  active-high 
-	line   5:      "GPIO5"       unused   input  active-high 
-	line   6:      "GPIO6"       unused   input  active-high 
-	line   7:  "SPI_CE1_N"       unused   input  active-high 
-	line   8:  "SPI_CE0_N"       unused   input  active-high 
-	line   9:   "SPI_MISO"       unused   input  active-high 
-	line  10:   "SPI_MOSI"       unused   input  active-high 
-	line  11:   "SPI_SCLK"       unused   input  active-high 
-	line  12:     "GPIO12"       unused   input  active-high 
-	line  13:     "GPIO13"       unused   input  active-high 
-	line  14:       "TXD1"       unused   input  active-high 
-	line  15:       "RXD1"       unused   input  active-high 
-	line  16:     "GPIO16"       unused   input  active-high 
-	line  17:     "GPIO17"       unused   input  active-high 
-	line  18:     "GPIO18"       unused   input  active-high 
-	line  19:     "GPIO19"       unused   input  active-high 
-	line  20:     "GPIO20"       unused   input  active-high 
-	line  21:     "GPIO21"       unused   input  active-high 
-	line  22:     "GPIO22"       unused   input  active-high 
-	line  23:     "GPIO23"       unused   input  active-high 
-	line  24:     "GPIO24"       unused   input  active-high 
-	line  25:     "GPIO25"       unused   input  active-high 
-	line  26:     "GPIO26"       unused   input  active-high 
-	line  27:     "GPIO27"       unused   input  active-high 
-	line  28: "RGMII_MDIO"       unused   input  active-high 
-	line  29:  "RGMIO_MDC"       unused   input  active-high 
-	line  30:       "CTS0"       unused   input  active-high 
-	line  31:       "RTS0"       unused   input  active-high 
-	line  32:       "TXD0"       unused   input  active-high 
-	line  33:       "RXD0"       unused   input  active-high 
-	line  34:    "SD1_CLK"       unused   input  active-high 
-	line  35:    "SD1_CMD"       unused   input  active-high 
-	line  36:  "SD1_DATA0"       unused   input  active-high 
-	line  37:  "SD1_DATA1"       unused   input  active-high 
-	line  38:  "SD1_DATA2"       unused   input  active-high 
-	line  39:  "SD1_DATA3"       unused   input  active-high 
-	line  40:  "PWM0_MISO"       unused   input  active-high 
-	line  41:  "PWM1_MOSI"       unused   input  active-high 
-	line  42: "STATUS_LED_G_CLK" "ACT" output active-high [used]
-	line  43: "SPIFLASH_CE_N" unused input active-high 
-	line  44:       "SDA0"       unused   input  active-high 
-	line  45:       "SCL0"       unused   input  active-high 
-	line  46: "RGMII_RXCLK" unused input active-high 
-	line  47: "RGMII_RXCTL" unused input active-high 
-	line  48: "RGMII_RXD0"       unused   input  active-high 
-	line  49: "RGMII_RXD1"       unused   input  active-high 
-	line  50: "RGMII_RXD2"       unused   input  active-high 
-	line  51: "RGMII_RXD3"       unused   input  active-high 
-	line  52: "RGMII_TXCLK" unused input active-high 
-	line  53: "RGMII_TXCTL" unused input active-high 
-	line  54: "RGMII_TXD0"       unused   input  active-high 
-	line  55: "RGMII_TXD1"       unused   input  active-high 
-	line  56: "RGMII_TXD2"       unused   input  active-high 
-	line  57: "RGMII_TXD3"       unused   input  active-high 
-gpiochip1 - 8 lines:
-	line   0:      "BT_ON"   "shutdown"  output  active-high [used]
-	line   1:      "WL_ON"       unused  output  active-high 
-	line   2: "PWR_LED_OFF" "PWR" output active-low [used]
-	line   3: "GLOBAL_RESET" unused output active-high 
-	line   4: "VDD_SD_IO_SEL" "vdd-sd-io" output active-high [used]
-	line   5:   "CAM_GPIO" "cam1_regulator" output active-high [used]
-	line   6:  "SD_PWR_ON" "sd_vcc_reg"  output  active-high [used]
-	line   7:    "SD_OC_N"       unused   input  active-high 
-elec3607@raspberrypi:~ $ gpioget gpiochip0 2
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioinfo
+gpiochip0 - 4 lines:
+        line   0:   "PS_MODE0"       unused   input  active-high 
+        line   1:   "PS_MODE1"      "reset"  output   active-low [used]
+...
+gpiochip6 - 28 lines:
+        line   0:  "RPI_GPIO0"       unused   input  active-high 
+        line   1:  "RPI_GPIO1"       unused   input  active-high 
+        line   2:  "RPI_GPIO2"       unused   input  active-high 
+        line   3:  "RPI_GPIO3"       unused   input  active-high 
+        line   4:  "RPI_GPIO4"       unused   input  active-high 
+...
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget gpiochip6 2
 1
-elec3607@raspberrypi:~ $ gpioget --active-low gpiochip0 0 2
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget --active-low gpiochip6 0 2
 0 0
-elec3607@raspberrypi:~ $ gpioset gpiochip0 4=1
-elec3607@raspberrypi:~ $ gpioinfo
-gpiochip0 - 58 lines:
-	line   0:     "ID_SDA"       unused   input  active-high 
-	line   1:     "ID_SCL"       unused   input  active-high 
-	line   2:       "SDA1"       unused   input  active-high 
-	line   3:       "SCL1"       unused   input  active-high 
-	line   4:  "GPIO_GCLK"       unused  output  active-high 
-	line   5:      "GPIO5"       unused   input  active-high 
-	line   6:      "GPIO6"       unused   input  active-high 
-	line   7:  "SPI_CE1_N"       unused   input  active-high 
-	line   8:  "SPI_CE0_N"       unused   input  active-high 
-	line   9:   "SPI_MISO"       unused   input  active-high 
-	line  10:   "SPI_MOSI"       unused   input  active-high 
-	line  11:   "SPI_SCLK"       unused   input  active-high 
-	line  12:     "GPIO12"       unused   input  active-high 
-	line  13:     "GPIO13"       unused   input  active-high 
-	line  14:       "TXD1"       unused   input  active-high 
-	line  15:       "RXD1"       unused   input  active-high 
-	line  16:     "GPIO16"       unused   input  active-high 
-	line  17:     "GPIO17"       unused   input  active-high 
-	line  18:     "GPIO18"       unused   input  active-high 
-	line  19:     "GPIO19"       unused   input  active-high 
-	line  20:     "GPIO20"       unused   input  active-high 
-	line  21:     "GPIO21"       unused   input  active-high 
-	line  22:     "GPIO22"       unused   input  active-high 
-	line  23:     "GPIO23"       unused   input  active-high 
-	line  24:     "GPIO24"       unused   input  active-high 
-	line  25:     "GPIO25"       unused   input  active-high 
-	line  26:     "GPIO26"       unused   input  active-high 
-	line  27:     "GPIO27"       unused   input  active-high 
-	line  28: "RGMII_MDIO"       unused   input  active-high 
-	line  29:  "RGMIO_MDC"       unused   input  active-high 
-	line  30:       "CTS0"       unused   input  active-high 
-	line  31:       "RTS0"       unused   input  active-high 
-	line  32:       "TXD0"       unused   input  active-high 
-	line  33:       "RXD0"       unused   input  active-high 
-	line  34:    "SD1_CLK"       unused   input  active-high 
-	line  35:    "SD1_CMD"       unused   input  active-high 
-	line  36:  "SD1_DATA0"       unused   input  active-high 
-	line  37:  "SD1_DATA1"       unused   input  active-high 
-	line  38:  "SD1_DATA2"       unused   input  active-high 
-	line  39:  "SD1_DATA3"       unused   input  active-high 
-	line  40:  "PWM0_MISO"       unused   input  active-high 
-	line  41:  "PWM1_MOSI"       unused   input  active-high 
-	line  42: "STATUS_LED_G_CLK" "ACT" output active-high [used]
-	line  43: "SPIFLASH_CE_N" unused input active-high 
-	line  44:       "SDA0"       unused   input  active-high 
-	line  45:       "SCL0"       unused   input  active-high 
-	line  46: "RGMII_RXCLK" unused input active-high 
-	line  47: "RGMII_RXCTL" unused input active-high 
-	line  48: "RGMII_RXD0"       unused   input  active-high 
-	line  49: "RGMII_RXD1"       unused   input  active-high 
-	line  50: "RGMII_RXD2"       unused   input  active-high 
-	line  51: "RGMII_RXD3"       unused   input  active-high 
-	line  52: "RGMII_TXCLK" unused input active-high 
-	line  53: "RGMII_TXCTL" unused input active-high 
-	line  54: "RGMII_TXD0"       unused   input  active-high 
-	line  55: "RGMII_TXD1"       unused   input  active-high 
-	line  56: "RGMII_TXD2"       unused   input  active-high 
-	line  57: "RGMII_TXD3"       unused   input  active-high 
-gpiochip1 - 8 lines:
-	line   0:      "BT_ON"   "shutdown"  output  active-high [used]
-	line   1:      "WL_ON"       unused  output  active-high 
-	line   2: "PWR_LED_OFF" "PWR" output active-low [used]
-	line   3: "GLOBAL_RESET" unused output active-high 
-	line   4: "VDD_SD_IO_SEL" "vdd-sd-io" output active-high [used]
-	line   5:   "CAM_GPIO" "cam1_regulator" output active-high [used]
-	line   6:  "SD_PWR_ON" "sd_vcc_reg"  output  active-high [used]
-	line   7:    "SD_OC_N"       unused   input  active-high
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioset gpiochip6 4=1
+0 0
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioinfo gpiochip6
+gpiochip6 - 28 lines:
+        line   0:  "RPI_GPIO0"       unused   input  active-high 
+        line   1:  "RPI_GPIO1"       unused   input  active-high 
+        line   2:  "RPI_GPIO2"       unused   input  active-high 
+        line   3:  "RPI_GPIO3"       unused   input  active-high 
+        line   4:  "RPI_GPIO4"       unused  output  active-high 
+...
 ```
 
-Using the above commands, demonstrate that you can make GPIO 26 high or
-low and verify using an oscilloscope. If it doesn't look like a square wave, explain why. 
+In your lab book, explain what each of the commands above do.
+
+Using the above commands, demonstrate using an oscilloscope that you can control RPI_GPIO24 and make that pin high or low using the correct command-line command.
 
 ## 3. Libgpiod C code (30%)
 
 The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code. 
 Complete the parts labelled ```XXX``` to create a program that will 
-output a square wave on GPIO 26. Using an oscilloscope, measure the
+output a square wave on RPI_GPIO24. 
+
+The program is compiled and executed (but will show an error because 
+the program hasn't been completed) as follows:
+```bash
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ make libpiod_blink
+make: *** No rule to make target 'libpiod_blink'.  Stop.
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ make libgpiod_blink
+cc -c -Wall -g   libgpiod_blink.c -o libgpiod_blink.o
+libgpiod_blink.c: In function 'gpio_init':
+libgpiod_blink.c:34:27: error: 'XXX' undeclared (first use in this function)
+   34 |         output_lines[i] = XXX;
+      |                           ^~~
+libgpiod_blink.c:34:27: note: each undeclared identifier is reported only once for each function it appears in
+libgpiod_blink.c:18:9: warning: unused variable 'pins' [-Wunused-variable]
+   18 |     int pins[] = { 26 };                // operate on all these pins
+      |         ^~~~
+libgpiod_blink.c: In function 'gpio_writer':
+libgpiod_blink.c:52:13: error: 'XXX' undeclared (first use in this function)
+   52 |             XXX;        // write v to line j
+      |             ^~~
+make: *** [Makefile:14: libgpiod_blink.o] Error 1
+```
+
+After fixing, you can execute it by typing:
+```
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ make libgpiod_blink
+cc -c -Wall -g   libgpiod_blink.c -o libgpiod_blink.o
+cc -o libgpiod_blink libgpiod_blink.o -lgpiod 
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ ./libgpiod_blink
+```
+
+Using an oscilloscope, measure the
 frequency of the square wave and put a screen shot in your lab book
 together with an explanation of the changes that you needed to make.
 
-The program is compiled and executed as follows:
-```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ make libgpiod_blink
-cc -c -Wall -g   libgpiod_blink.c -o libgpiod_blink.o
-cc -o libgpiod_blink libgpiod_blink.o -lgpiod 
-elec3607@raspberrypi:~/elec3607-lab/labs/lab1-gpio $ ./libgpiod_blink
-```
-
 ## 3. mmap (highest speed) (20%)
-Modify the mmap version to produce the highest clock frequency square wave,
-capture a screen shot and record the shortest period achieved. Try to get the best oscilloscope trace of the
-output. 
+Modify ```mmap_blink.c``` to produce a square wave,
+capture a screen shot and record the shortest period achieved. 
 
 ## 4. mmap (50 MHz) (30%)
 Directly controlling the registers on the microcontroller via ```mmap(2)``` gives the highest performance and flexibility but is device-dependent. 
