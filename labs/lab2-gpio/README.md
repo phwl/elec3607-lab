@@ -3,7 +3,7 @@
 In this lab you will learn how to manipulate GPIO output in two different
 ways (libgpiod and mmap).
 
-## 1. Installation (0%)
+## 1. Installation (20%)
 To start, you should download all the lab materials for this course. With your 
 AUP-ZU3 connected to the internet, use the following command:
 ```bash
@@ -27,7 +27,13 @@ Makefile  README.md  libgpiod-ref.pdf  libgpiod_blink.c  mmap_blink.c
 petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ 
 ```
 
-## 2. Libgpiod commands (20%)
+Finally, use superuser priviliges to modify the permissions of the gpio        
+device so that it can be used by all users
+```bash                                                                       
+sudo chmod a+rw /dev/gpiochip6                                            
+```
+
+## 2. Libgpiod commands (30%)
 
 Since Linux v4.8, the standard way of using Linux GPIO has been via libgpiod. Prior to the introduction of libgpiod, the sysfs interface was used, but sysfs is depreciated and was removed from the mainline Linux kernel in 2020. The library
 provides a hardware independent technique to perform input and output via GPIO (see [the manual](./libgpiod-ref.pdf)). 
@@ -47,7 +53,10 @@ gpiofind - find the gpiochip name and line offset given the line name
 gpiomon - wait for events on GPIO lines, specify which events to watch, how many events to process before exiting or if the events should be reported to the console.
 ```
 
-Here are some usage examples from the Linux documentation
+Here are some usage examples from the Linux documentation (you need to do 
+sudo to get permission to interrogate all the gpio chips whereas 
+you don't need to do so for gpiochip6 because we gave global
+access permission earlier)
 ```bash
 petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioinfo
 gpiochip0 - 4 lines:
@@ -77,15 +86,17 @@ gpiochip6 - 28 lines:
 ...
 ```
 
-In your lab book, explain what each of the commands above do.
+In your lab book, explain what each of the commands above do, the return
+values received, and how they affect the physical GPIO pin..
 
 Using the above commands, demonstrate using an oscilloscope that you can control RPI_GPIO24 and make that pin high or low using the correct command-line command.
 
 ## 3. Libgpiod C code (30%)
 
-The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code. 
+The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code
+that, when correctly completed, will output a square wave. 
 Complete the parts labelled ```XXX``` to create a program that will 
-output a square wave on RPI_GPIO24. 
+output a 1 Hz square wave on RPI_GPIO24. 
 
 The program is compiled and executed (but will show an error because 
 the program hasn't been completed) as follows:
@@ -119,17 +130,13 @@ petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ ./libgpiod_blink
 
 Using an oscilloscope, measure the
 frequency of the square wave and put a screen shot in your lab book
-together with an explanation of the changes that you needed to make.
+together with an explanation of your changes.
 
-## 3. mmap (highest speed) (20%)
-Modify ```mmap_blink.c``` to produce a square wave,
-capture a screen shot and record the shortest period achieved. 
-
-## 4. mmap (50 MHz) (30%)
-Directly controlling the registers on the microcontroller via ```mmap(2)``` gives the highest performance and flexibility but is device-dependent. 
+## 4. mmap (20%)
+Directly controlling the registers on the microcontroller via ```mmap(2)``` gives the highest flexibility but is device-dependent, dangerous (because buggy code could affect other peripherals) and insecure.
 
 The code in ```mmap_blink.c``` is similar to ```libgpiod_blink.c``` except
 that it directly manipulates registers. Again, there are parts missing to
 the program marked as ```XXX```. Fill them in and create a version that
-produces a square wave at 50MHz +/- 20%. Make an oscilloscope screen shot of this version and write an explanation of the changes that you needed to make.
+produces a square wave at the maximum possible frequency. Make an oscilloscope screen shot of this version and write an explanation of the changes that you needed to make. In addition, make a screen shot measuring the rise time of the square wave output.
 

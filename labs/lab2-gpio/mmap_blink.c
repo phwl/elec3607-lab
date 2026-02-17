@@ -1,6 +1,3 @@
-/*
-**	ELEC3607 gpio register interface example
-*/
 
 #include <assert.h>
 #include <fcntl.h>
@@ -12,40 +9,47 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-// GPIO which we want to toggle in this example.
-#define OUTPUTPIN 26
 
-// GPIO offset locations
+#define OUTPUTPIN 24
+
+#define AXI_GPIO_BASE 0x80030000UL
+
 #define PAGE_SIZE 4096
-#define GPIO_SET_OFFSET 0x1C
-#define GPIO_CLR_OFFSET 0x28
+#define GPIO_DATA 0x0
+#define GPIO_TRI  0x4
 
-void 
-gpio_setasoutput(volatile uint32_t *gpio_p, int b) {
-	*(gpio_p + (b/10)) &= ~(7 << ((b%10)*3));  // prepare: set as input
-	*(gpio_p + (b/10)) |=  (1 << ((b%10)*3));  // set as output.
-}
+int
+main(int argc, char *argv[])
+{
+    int mem_fd;
+    uint8_t *map_base;
+    volatile uint32_t *gpio_p;
 
-int 
-main(int argc, char *argv[]) {
-	int			mem_fd;
-	uint32_t	*gpio_p;
-	volatile uint32_t *set_reg;
-	volatile uint32_t *clr_reg;
+    // NOTE: /dev/gpiochip6 cannot be mmap'ed as registers. Use /dev/mem.
+    if ((mem_fd = open("/dev/mem", O_RDWR | O_SYNC)) < 0) {
+        perror("can't open /dev/mem");
+        exit(1);
+    }
 
-	if ((mem_fd = open("/dev/gpiomem", O_RDWR|O_SYNC) ) < 0) {
-		perror("can't open /dev/gpiomem: ");
-		exit(0);
-	}
-	gpio_p = (uint32_t *)mmap(NULL, PAGE_SIZE, PROT_READ|PROT_WRITE,  
-							MAP_SHARED, mem_fd, 0);
-	gpio_setasoutput(gpio_p, OUTPUTPIN);
 
-	set_reg = gpio_p + (GPIO_SET_OFFSET / sizeof(uint32_t));
-	clr_reg = gpio_p + (GPIO_CLR_OFFSET / sizeof(uint32_t));
+    map_base = (uint8_t *)mmap(NULL, PAGE_SIZE, PROT_READ | PROT_WRITE,
+                              MAP_SHARED, mem_fd,  AXI_GPIO_BASE);
+    if (map_base == MAP_FAILED) {
+        perror("mmap failed");
+        close(mem_fd);
+        exit(1);
+    }
+   
+    gpio_p = (volatile uint32_t *)map_base;
+    
+    gpio_p[GPIO_TRI / 4] &= ~(1 << OUTPUTPIN); // set as output
 
-	for (;;) {
+    for (;;) {
         XXX;
-	}
-    exit(0);
+    }
+
+    // never reached
+    munmap((void *)map_base, PAGE_SIZE);
+    close(mem_fd);
+    return 0;
 }
