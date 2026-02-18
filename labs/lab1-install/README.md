@@ -26,6 +26,8 @@ It will be useful to connect to the board in two ways:
 * via a serial port which will allow you to login to the board and type commands
 * via Ethernet, enabling the connection of the board to the Internet.
 
+Please follow the appropriate subsection below for Windows and MacOS.
+
 ### 2.1 Windows
 ### 2.1.1 Serial Port (UART)
 For Windows users, you can first open Device Manager. You should see two **USB Serial Ports** under the **ports** section.
@@ -42,7 +44,7 @@ Open the software and adjust it to the configuration shown in the image below (p
 
 Click Open and reboot the AUP-ZU3 by pressing the "POR" button. You should see the following final output in the dialog box.
 ![15](./image/15.png)
-The user name is **petalinux**, set your own password using the ```passwd''' command.
+The user name is **petalinux**. You will be prompted to set your own password (note that when you type the password, the characters are not echoed).
 
 
 ### 2.1.2. Network (via Ethernet)
@@ -100,7 +102,7 @@ $ screen /dev/tty.usbserial-8802250000121 115200
 
 petalinux-8GB login: 
 ```
-The user name is **petalinux**, set your own password using the ```passwd''' command.
+The user name is **petalinux**. You will be prompted to set your own password (note that when you type the password, the characters are not echoed).
 
 ### 2.2.2. Network (via Ethernet)
 Get the IP address using the ```ipconfig``` command
