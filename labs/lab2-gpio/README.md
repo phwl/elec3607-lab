@@ -87,9 +87,11 @@ gpiochip6 - 28 lines:
 ```
 
 In your lab book, explain what each of the commands above do, the return
-values received, and how they affect the physical GPIO pin..
+values received, and how they affect the physical GPIO pin.
 
 Using the above commands, demonstrate using an oscilloscope that you can control RPI_GPIO24 and make that pin high or low using the correct command-line command.
+You will need to refer to the [Reference Manual](doc/ZU3_RM_A1.pdf) to find
+the pin on the board.
 
 ## 3. Libgpiod C code (30%)
 
