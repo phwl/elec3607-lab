@@ -25,7 +25,7 @@ Here is what the output on the XA pin of the Si5351 should look like (note that 
 #### Question 1 - I2C Interface (30%)
 To check that worked, try:
 ```bash
-petalinux-8GB:~/lab6$ i2cdetect -l
+petalinux-8GB:~$ sudo i2cdetect -l
 i2c-0   unknown         Cadence I2C at ff020000                 N/A
 i2c-1   unknown         Cadence I2C at ff030000                 N/A
 i2c-2   unknown         xiic-i2c 800a0000.i2c                   N/A
@@ -37,19 +37,40 @@ This tells us that the i2c-3 device is found.
 Now scan i2c bus 3 for any i2c devices using the command below. Everything is working, the Si5351 device should respond as below. The table tells us that the Si5351 device with address 0x60 responded. 
 
 ```bash
-elec3607@raspberrypi:~ $ i2cdetect 3
-WARNING! This program can confuse your I2C bus, cause data loss and worse!
-I will probe file /dev/i2c-3.
-I will probe address range 0x08-0x77.
-Continue? [Y/n] 
+petalinux-8GB:~$ sudo chmod a+rw /dev/i2c-3
+petalinux-8GB:~$ i2cdetect -y 3
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:                         -- -- -- -- -- -- -- -- 
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+```
+
+Finally, dump the registers of the Si5351 using this command:
+```bash
+petalinux-8GB:~$ i2cdump -y 3 0x60
+No size specified (using byte-data access)
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f    0123456789abcdef
+00: 11 f8 03 00 00 ff 00 00 00 00 00 00 00 00 90 00    ???...........?.
+10: 00 00 00 80 80 80 80 80 00 00 00 00 00 00 00 00    ...?????........
+20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+b0: ff 0c 00 00 00 30 1f d2 60 60 b8 02 00 00 00 00    .?...0??``??....
+c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 c3 20 00    .............? .
+d0: 00 00 00 80 00 00 00 00 00 00 1c 00 00 00 00 40    ...?......?....@
+e0: 00 00 38 00 4b 00 00 55 00 00 00 00 00 00 00 00    ..8.K..U........
+f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
 ```
 
 #### Question 2 - I2C Transaction (30%)
