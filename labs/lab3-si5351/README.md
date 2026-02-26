@@ -5,7 +5,7 @@ This lab involves soldering the components for the Si5351 Clock Generator on the
 ## Part A - Construction
 #### Question 1 - Soldering and using the Oscilloscope (100%)
 
-Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram below to understand what they do. Find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+Identify the missing components on the printed circuit board (PCB). You will need to study the PCB and the schematic diagram below to understand what they do. If necessary, find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
 
 ![](BBBSchematic.jpg)
 
@@ -23,29 +23,23 @@ Here is what the output on the XA pin of the Si5351 should look like (note that 
 ## Part B - Si5351 Programming 
 
 #### Question 1 - I2C Interface (30%)
-First you need to enable the RPi i2c port. You do this by running
-```raspi-config```, select ```Interface Options``` and then 
-select ```I2C```. This loads the i2c driver into the kernel.
-
 To check that worked, try:
 ```bash
-elec3607@raspberrypi:~ $ i2cdetect -l
-i2c-1	i2c       	bcm2835 (i2c@7e804000)          	I2C adapter
-i2c-20	i2c       	fef04500.i2c                    	I2C adapter
-i2c-21	i2c       	fef09500.i2c                    	I2C adapter
+petalinux-8GB:~/lab6$ i2cdetect -l
+i2c-0   unknown         Cadence I2C at ff020000                 N/A
+i2c-1   unknown         Cadence I2C at ff030000                 N/A
+i2c-2   unknown         xiic-i2c 800a0000.i2c                   N/A
+i2c-3   unknown         xiic-i2c 80090000.i2c                   N/A
+i2c-4   unknown         ZynqMP DP AUX                           N/A
 ```
-This tells us that the i2c-1 device is found (the part that says ```bcm2835 (i2c@7e804000)``` doesn't appear to be accurate).
+This tells us that the i2c-3 device is found.
 
-Study the SDR board and connect the power, SDA and SCL lines of the from the RPi to the appropriate port on the SDR board. 
-
-Now scan i2c bus 1 for any i2c devices using the command below. If your wiring was correct (and your soldering from Part A of this lab was good) the Si5351 device should respond as below. The table tells us that the Si5351 device with address 0x60 responded. 
-
-If you do not get a response from 0x60, you will need to debug your hardware. The starting point would be to check continuity of all your soldered connections as well as the connections from the RPi to the ELEC3607-SDR board.
+Now scan i2c bus 3 for any i2c devices using the command below. Everything is working, the Si5351 device should respond as below. The table tells us that the Si5351 device with address 0x60 responded. 
 
 ```bash
-elec3607@raspberrypi:~ $ i2cdetect 1
+elec3607@raspberrypi:~ $ i2cdetect 3
 WARNING! This program can confuse your I2C bus, cause data loss and worse!
-I will probe file /dev/i2c-1.
+I will probe file /dev/i2c-3.
 I will probe address range 0x08-0x77.
 Continue? [Y/n] 
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -70,50 +64,18 @@ elec3607@raspberrypi:~ $ cd ~/elec3607-lab
 elec3607@raspberrypi:~/elec3607-lab $ git pull
 Enter passphrase for key '/home/elec3607/.ssh/id_rsa': 
 Updating e771ae6..fd6285a
-Fast-forward
- labs/lab1-gpio/README.md        |   8 +-
- labs/lab1-gpio/libgpiod-ref.pdf | Bin 0 -> 428152 bytes
- labs/lab1-gpio/mmap_blink.c     |   0
- labs/lab2-si5351/Makefile          |   0
- labs/lab2-si5351/README.md         | 461 ++++++++++++++++++++++++++++++++++++++++
- labs/lab2-si5351/i2c-stub.c        |   0
- labs/lab2-si5351/i2cread.c         |   0
- labs/lab2-si5351/rpi-i2c.png       | Bin 0 -> 28035 bytes
+...
  8 files changed, 465 insertions(+), 4 deletions(-)
- mode change 100755 => 100644 labs/lab2-si5351/Makefile
- create mode 100755 labs/lab2-si5351/README.md
- mode change 100755 => 100644 labs/lab2-si5351/i2cread.c
- create mode 100755 labs/lab2-si5351/rpi-i2c.png
-elec3607@raspberrypi:~/elec3607-lab $ cd labs/lab2-si5351/
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $
-```
-
-
-```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ sudo apt install libi2c-dev
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following package was automatically installed and is no longer required:
-  libraspberrypi0
-Use 'sudo apt autoremove' to remove it.
-The following NEW packages will be installed:
-  libi2c-dev
-0 upgraded, 1 newly installed, 0 to remove and 73 not upgraded.
-Need to get 11.6 kB of archives.
-After this operation, 35.8 kB of additional disk space will be used.
-Get:1 http://deb.debian.org/debian bookworm/main arm64 libi2c-dev arm64 4.3-2+b3 [11.6 kB]
-Fetched 11.6 kB in 1s (11.9 kB/s)    
-Selecting previously unselected package libi2c-dev:arm64.
-(Reading database ... 145281 files and directories currently installed.)
-Preparing to unpack .../libi2c-dev_4.3-2+b3_arm64.deb ...
-Unpacking libi2c-dev:arm64 (4.3-2+b3) ...
-Setting up libi2c-dev:arm64 (4.3-2+b3) ...
+ mode change 100755 => 100644 labs/lab3-si5351/Makefile
+ create mode 100755 labs/lab3-si5351/README.md
+ mode change 100755 => 100644 labs/lab3-si5351/i2cread.c
+elec3607@raspberrypi:~/elec3607-lab $ cd labs/lab3-si5351/
+elec3607@raspberrypi:~/elec3607-lab/labs/lab3-si5351 $
 ```
 
 There are several ways that this interface can be made. We are going to create a Linux i2c-dev userspace driver, which is the most straightforward. The following program, derived from the Linux Kernel userspace driver documentation
 
-The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-1, address 0x60, i.e. register 0 of the Si5351. It is listed below.
+The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-3, address 0x60, i.e. register 0 of the Si5351. It is listed below.
 
 ```C
 #include <stdio.h>
@@ -123,7 +85,7 @@ The program ```i2cread.c``` reads and prints register 0 of device /dev/i2c-1, ad
 #include <linux/i2c-dev.h>
 #include <i2c/smbus.h>
 
-#define	I2C_FNAME	"/dev/i2c-1"
+#define	I2C_FNAME	"/dev/i2c-3"
 #define	SI5351_ADDR	0x60
 
 int	i2c_file;
@@ -161,14 +123,14 @@ main()
 
 It can be compiled and executed as follows:
 ```bash
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ make
+elec3607@raspberrypi:~/elec3607-lab/labs/lab3-si5351 $ make
 cc    -c -o i2cread.o i2cread.c
 cc -o i2cread i2cread.o -li2c
-elec3607@raspberrypi:~/elec3607-lab/labs/lab2-si5351 $ ./i2cread
+elec3607@raspberrypi:~/elec3607-lab/labs/lab3-si5351 $ ./i2cread
 r dev(0x60) reg(0x0)=0x11 (decimal 17)
 ```
 
-Here is part of the i2c transaction for i2cdetect -y 1 0x60 0x60.
+Here is part of the i2c transaction for i2cdetect -y 3 0x60 0x60.
 
 ![](rpi-i2c.png)
 
