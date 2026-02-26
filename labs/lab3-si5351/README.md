@@ -15,7 +15,7 @@ The connection between the AUP-ZU3 and PCB should be as in the figure below.
 
 In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Watch this video that illustrates oscilloscope best practices.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AJYpiPGySEs?si=-POz_OkwUFAFQf_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AJYpiPGySEs?si=h2vdRshZ7JHV9We9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode. 
 
