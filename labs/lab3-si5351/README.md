@@ -9,6 +9,10 @@ Identify the missing components on the printed circuit board (PCB). You will nee
 
 ![](BBBSchematic.jpg)
 
+The connection between the AUP-ZU3 and PCB should be as in the figure below.
+
+![](connection.jpg)
+
 In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Watch this video that illustrates oscilloscope best practices.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AJYpiPGySEs?si=-POz_OkwUFAFQf_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -70,12 +70,12 @@ gpiochip6 - 28 lines:
         line   3:  "RPI_GPIO3"       unused   input  active-high 
         line   4:  "RPI_GPIO4"       unused   input  active-high 
 ...
-petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget gpiochip6 2
-1
-petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget --active-low gpiochip6 0 2
-0 0
 petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioset gpiochip6 4=1
-0 0
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget gpiochip6 4
+1
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioset gpiochip6 4=0
+petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioget gpiochip6 4
+0
 petalinux-8GB:~/elec3607-lab/labs/lab2-gpio$ sudo gpioinfo gpiochip6
 gpiochip6 - 28 lines:
         line   0:  "RPI_GPIO0"       unused   input  active-high 
