@@ -144,3 +144,5 @@ Updating files: 100% (250/250), done.
 ```
 ```
 
+## 4. Experiment with the command-line (Optional)
+Try out some [Linux commands](https://bootlin.com/doc/legacy/command-line/command_memento.pdf).
