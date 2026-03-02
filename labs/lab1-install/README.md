@@ -142,7 +142,6 @@ Receiving objects: 100% (1542/1542), 116.38 MiB | 12.51 MiB/s, done.
 Resolving deltas: 100% (828/828), done.
 Updating files: 100% (250/250), done.
 ```
-```
 
 ## 4. Experiment with the command-line (Optional)
 Try out some [Linux commands](https://bootlin.com/doc/legacy/command-line/command_memento.pdf).
