@@ -34,10 +34,15 @@ i2c-4   unknown         ZynqMP DP AUX                           N/A
 ```
 This tells us that the i2c-3 device is found.
 
+Rather than require ```sudo``` for every command, first we give everyone access
+to ```/dev/i2c-3```
+```bash
+petalinux-8GB:~$ sudo chmod a+rw /dev/i2c-3
+```
+
 Now scan i2c bus 3 for any i2c devices using the command below. Everything is working, the Si5351 device should respond as below. The table tells us that the Si5351 device with address 0x60 responded. 
 
 ```bash
-petalinux-8GB:~$ sudo chmod a+rw /dev/i2c-3
 petalinux-8GB:~$ i2cdetect -y 3
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:                         -- -- -- -- -- -- -- --
