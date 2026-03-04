@@ -15,7 +15,7 @@ void i2c_init()
 	i2c_file = open(I2C_FNAME, O_RDWR);
 	if (i2c_file < 0)
     {
-        perror(I2C_FNAME);
+        perror("open");
 		exit(1);
     }
 }
@@ -24,7 +24,7 @@ int i2c_read(unsigned char reg)
 {
 	if (ioctl(i2c_file, I2C_SLAVE, SI5351_ADDR) < 0) 
     {
-        perror(I2C_FNAME);
+        perror("ioctl");
 		exit(1);
     }
 
@@ -33,7 +33,10 @@ int i2c_read(unsigned char reg)
 	/* Using SMBus commands */
 	res = i2c_smbus_read_byte_data(i2c_file, reg);
 	if (res < 0) 
+	{
+        perror("ioctl");
 		exit(1);
+	}
 	else 
 		printf("r dev(0x%x) reg(0x%x)=0x%x (decimal %d)\n", SI5351_ADDR, reg, res, res);
 	return res;

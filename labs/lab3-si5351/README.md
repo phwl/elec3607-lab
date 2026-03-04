@@ -80,7 +80,7 @@ f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
 
 #### Question 2 - I2C Transaction (30%)
 
-Use the userspace i2c driver (i2cread) described below to read register 0. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
+Modify the userspace i2c driver (i2cread) described below to read register 0xb1. Execute the program and capture the activity of the SCL and SDA pins on an oscilloscope. Make a printout of the oscilloscope display and annotate all parts of the i2c transaction (start, data, r/w, ack, etc). What is the period of the entire transaction?
 
 First, ensure you have the latest version of the lab notes. The easiest way to do this is to do a ```git pull``` from the ```elec3607-lab``` directory on your RPi as below
 (your output might be different).
