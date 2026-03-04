@@ -1,10 +1,10 @@
 This is a lab to set up your AUP-ZU3 board for ELEC3607.
 
 ---
-# Programming SD card
-First we write a Petalinux image to an SD card using Balena Etcher.
+# Programming MicroSD card
+First we write a Petalinux image to a microSD card using Balena Etcher.
 
-1. Install [Balena Etcher](https://etcher.balena.io/#download-etcher) on your machine. This is a cross-platform (Windows, Mac, and Linux) app to write images to an SD card or flash drive.
+1. Install [Balena Etcher](https://etcher.balena.io/#download-etcher) on your machine. This is a cross-platform (Windows, Mac, and Linux) app to write images to a microSD card or flash drive.
 1. Download <https://unisyd-my.sharepoint.com/:u:/g/personal/philip_leong_sydney_edu_au/IQC12MsEVdeHQqLNDXw9jgR6AZt6-e-cSTL-dex5rpXH0Ds?e=Aqx0DP> and burn the image to your card using Etcher.
 
 # Boot from Petalinux
