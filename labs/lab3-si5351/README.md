@@ -1,8 +1,7 @@
 # Lab 3 - Si5351
 
-This lab involves soldering the components for the Si5351 Clock Generator on the ELEC3607-SDRv2 printed circuit board and programming it to test your handiwork. 
-
-You will need to study the PCB and the schematic diagram below to understand what they do. If necessary, find the data sheets for the components and identify the orientation that they should be placed. Write all of this information in your lab book (including where to find the data sheet).
+This lab involves programming the Si5351 chip to generate clock signals.
+You will need to study the PCB and the schematic diagram below to understand how the Si5351 is connected. 
 
 ![](BBBSchematic.jpg)
 
@@ -10,15 +9,13 @@ The connection between the AUP-ZU3 and PCB should be as in the figure below.
 
 ![](connection.jpg)
 
-In this lab we will test the Si5351 Clock Generator. Think about how to verify it has been soldered correctly and working properly using only a multimeter and oscilloscope with x10 probe. Watch [this video](https://www.youtube.com/embed/AJYpiPGySEs?si=h2vdRshZ7JHV9We9) that illustrates oscilloscope best practices.
-Write your testing methodology and results in your lab book including screen shots of key measurements. Also explain in your lab book why for embedded systems you should mostly use your oscilloscope probes in x10 mode. 
 
-Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator for working).
+#### Question 1 - I2C Interface (10%)
+The first thing to test is that the crystal oscillator is working. Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator from working).
 
 ![](xtalout.jpg)
 
-#### Question 1 - I2C Interface (10%)
-To check that worked, try:
+To list all ```i2c``` devices in the Linux system, type the command
 ```bash
 petalinux-8GB:~$ sudo i2cdetect -l
 i2c-0   unknown         Cadence I2C at ff020000                 N/A
@@ -27,8 +24,6 @@ i2c-2   unknown         xiic-i2c 800a0000.i2c                   N/A
 i2c-3   unknown         xiic-i2c 80090000.i2c                   N/A
 i2c-4   unknown         ZynqMP DP AUX                           N/A
 ```
-This tells us that the i2c-3 device is found.
-
 Rather than require ```sudo``` for every command, first we give everyone access
 to ```/dev/i2c-3```
 ```bash
