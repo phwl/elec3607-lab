@@ -87,10 +87,12 @@ gpiochip6 - 28 lines:
 ```
 
 In your lab book, explain what each of the commands above do, the return
-values received, and how they affect the physical GPIO pin.
+values received, and how they affect the physical GPIO pins.
+
+Locate the RPI_GPIO24 pin on the RPI connector on the AUP-ZU3 board.
+You will need to refer to Figure 14 of the [AUP-ZU3 Reference Manual](doc/ZU3_RM_A1.pdf) to locate this pin on the board. To avoid damage, use your benchtop multimeter to check that you understand the pinout before probing the live board.
 
 Using the above commands, demonstrate using an oscilloscope that you can control RPI_GPIO24 and make that pin high or low using the correct command-line command.
-You will need to refer to Figure 14 of the [AUP-ZU3 Reference Manual](doc/ZU3_RM_A1.pdf) to locate this pin on the board. To avoid damage, use your benchtop multimeter to check that you understand the pinout before probing the live board.
 
 ## 3. Libgpiod C code (30%)
 

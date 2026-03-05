@@ -1,14 +1,15 @@
 # Lab 3 - Si5351
 
 This lab involves programming the Si5351 chip to generate clock signals.
-You will need to study the PCB and the schematic diagram below to understand how the Si5351 is connected. 
+You will need to study the software defined radio (SDR) printed circuit board (PCB) and the schematic diagram below to understand how the Si5351 is connected. 
 
 ![](BBBSchematic.jpg)
 
 The connection between the AUP-ZU3 and PCB should be as in the figure below.
+YOU MUST HAVE IT CHECKED BY A TUTOR BEFORE POWERING UP. IF YOU FAIL TO DO THIS AND
+DAMAGE THE BOARD, WE WILL NOT REPLACE IT.
 
 ![](connection.jpg)
-
 
 #### Question 1 - I2C Interface (10%)
 The first thing to test is that the crystal oscillator is working. Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator from working).
