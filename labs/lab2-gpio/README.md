@@ -1,4 +1,4 @@
-# Lab1 gpio
+# Lab 2 - gpio
 
 In this lab you will learn how to manipulate GPIO output in two different
 ways ([libgpiod](https://libgpiod.readthedocs.io/en/latest/index.html) and [mmap](https://linux.die.net/man/2/mmap)).
