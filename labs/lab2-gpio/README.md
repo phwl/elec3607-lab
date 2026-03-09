@@ -94,6 +94,16 @@ You will need to refer to Figure 14 of the [AUP-ZU3 Reference Manual](doc/ZU3_RM
 
 Using the above commands, demonstrate using an oscilloscope that you can control RPI_GPIO24 and make that pin high or low using the correct command-line command.
 
+The way that I like to do this is by using a modified version of the following script which creates a changing signal that is easier to identify on an oscilloscope:
+```bash
+
+while true 
+do
+    sudo gpioset gpiochip6 4=1
+    sudo gpioset gpiochip6 4=0
+done
+```
+
 ## 3. Libgpiod C code (30%)
 
 The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code
