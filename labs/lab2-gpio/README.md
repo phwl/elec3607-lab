@@ -106,7 +106,7 @@ done
 
 ## 3. Libgpiod C code (30%)
 
-The code in ```lab1-gpio/lab1-gpio/lab1/libgpiod_blink.c``` is a skeleton code
+The code in ```labs/lab2-gpio/libgpiod_blink.c``` is a skeleton code
 that, when correctly completed, will output a square wave. 
 Complete the parts labelled ```XXX``` to create a program that will 
 output a 1 Hz square wave on RPI_GPIO24. 
