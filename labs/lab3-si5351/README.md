@@ -12,7 +12,8 @@ DAMAGE THE BOARD, WE WILL NOT REPLACE IT.
 ![](connection.jpg)
 
 #### Question 1 - I2C Interface (10%)
-The first thing to test is that the crystal oscillator is working. Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator from working).
+The first thing to do is solder in the J1 connector and put in the jumpers to
+connect the I2C signals of the AUP-ZU3 board to the Si5351. Next, check that the crystal oscillator is working. Here is what the output on the XA pin of the Si5351 should look like (note that this may not work on other chips as the load of the oscilloscope probe may stop the oscillator from working).
 
 ![](xtalout.jpg)
 
