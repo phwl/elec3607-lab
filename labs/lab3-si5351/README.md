@@ -159,7 +159,7 @@ Obtain your own oscilloscope capture when running ```i2cread```. Annotate the ca
 
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
-[Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows so you may need to find a suitable machine for this step. 
+[Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows so you may need to find a suitable machine for this step (if necessary, you can work with a different group on this part). 
 For your reference, [Application Note AN619 Manually Generating an Si5351 Register Map for 10-MSOP and 20-QFN Devices](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf) explains how to program the Si5351 without using ClockBuilder Desktop. It might be useful in your later experiments.
 
 ClockBuilder Desktop allows a user to generate a C header file to program the Si5351 with custom frequency plans via I2C. Figure 10 in
