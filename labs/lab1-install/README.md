@@ -1,3 +1,5 @@
+# Lab 1 - Setup
+
 This is a lab to set up your AUP-ZU3 board for ELEC3607.
 
 ---

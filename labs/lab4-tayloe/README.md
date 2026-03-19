@@ -1,4 +1,4 @@
-# Lab 3 - Amplifier and Tayloe Detector
+# Lab 4 - Amplifier and Tayloe Detector
 
 This lab involves simulation and testing of an RF amplifier and  Tayloe detector.
 
