@@ -13,7 +13,7 @@ A subcircuit of the schematic from the previous lab shows the RF amplifier with 
 Now measure the frequency response of the RF amplifier on your PCB using a waveform generator and oscilloscope. What is the small-signal gain for an approximately 20 mV peak-to-peak sine wave input at 7.001 MHz? Is it the expected value?
 
 ## Part B - Tayloe Detector 
-### Question 1 - Tayloe Detector Simulation (30%)
+### Question 1 - Tayloe Detector Simulation (40%)
 
 The Tayloe Detector simulation explained in the lectures is available in this directory as ```tayloe-ideal.asc```. 
 Referring to the documentation, explain the purpose of the LTspice directive:
@@ -39,9 +39,6 @@ Describe the expected behaviour in your lab book and include screen shots to dem
  * The MIXCLK0 and MIXCLK90 inputs to the mixer
  * The differential MIXQ+ and MIXQ- outputs of the mixer
  * The Qout output of the opamp integrator.
-Unfortunately, a subset of the MIXQ+, MIXQ-, MIXI+ and MIXI-, I+, I-, Q+, Q- outputs have been mislabelled. Starting 
-from the MIXCLK0 and MIXCLK90 inputs, explain the operation of the Tayloe detector circuit and write the correct labels 
-in your lab book. Explain why the existing connections still work.
 
 Using attenuators to reduce the output of the signal generator, measure the minimum discernable signal (MDS) 
 from RFIN, through the RF amplifier and Tayloe detector to Qout. To do this, you can use the FFT math feature of the
@@ -54,9 +51,7 @@ Here is an oscilloscope capture of the downconverted, baseband signal (Qout), wh
 ![](mds-baseband.png)
 
 
-### Question 3 - Iout Signal (30%)
-Measure the transfer function of the Iout signal. You will note that it is not the same as Qout. Modify the printed circuit board (PCB) to fix this issue (by current a track and adding a new wire). Include a photograph of your modified PCB and an oscilloscope trace of the transfer function for both signals in your lab book. 
-
-If this is done correctly, if you put the X-channel on Iout (purple), Y-channel on Qout (blue) and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
+### Question 3 - Iout Signal (20%)
+Put the X-channel on Iout (purple), Y-channel on Qout (blue) and set the oscilloscope to XY display, you should see the below. Explain why we get this output.
 
 ![](cro-xy.png)
