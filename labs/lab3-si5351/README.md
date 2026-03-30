@@ -157,6 +157,8 @@ Obtain your own oscilloscope capture when running ```i2cread```. Annotate the ca
 
 #### Question 3 - Si5351 Configuration (40%)
 
+You will need to add an ```i2cwrite()``` function to your answer to Question 2 to modify registers and configure the Si5351. This should be used to configure the chip as per below.
+
 [The data sheet](https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/data-sheets/Si5351-B.pdf)
 for the Si5351 refers to the 
 [Clock builder pro software](https://www.skyworksinc.com/en/Application-Pages/Clockbuilder-Pro-Software). This is only available for Windows so you may need to find a suitable machine for this step (if necessary, you can work with a different group on this part). 

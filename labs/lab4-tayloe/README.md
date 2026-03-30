@@ -10,6 +10,9 @@ The LTspice simulator is available from https://www.analog.com/en/design-center/
 A subcircuit of the schematic from the previous lab shows the RF amplifier with input RFIN and output RFOUT. Draw an LTspice schematic of the circuit using the ideal single-pole operational amplifier model (``opamp'') in place of the THS4304. Make a Bode plot of the frequency response, using ```.ac dec 20 1 10MEG``` (this specifies an AC analysis with 20 points per decade from 1 Hz to 10 MHz). Find the datasheet for the [THS4304](https://www.ti.com/product/THS4304). What are typical values for the open loop gain and the gain bandwidth product? Change your opamp model to use these values in place of the default ones for Aol and GBW. How does the frequency response of your feedback RF amplifier change? Explain the reason that this happens. Also verify that the gain of the amplifier in the passband region around 7 MHz is the correct value.
 
 ### Question 2 - Measurement (70%)
+First consider which jumpers in J1 need to be in-place to connect the 
+BPFIN signal to RFIN and disable the band pass filter.
+
 Now measure the frequency response of the RF amplifier on your PCB using a waveform generator and oscilloscope. What is the small-signal gain for an approximately 20 mV peak-to-peak sine wave input at 7.001 MHz? Is it the expected value?
 
 ## Part B - Tayloe Detector 
@@ -33,6 +36,8 @@ Place these new plots in your lab book and explain how they relate to the input 
 The initial simulation provided is for a simulation at 1 MHz. WSPR transmits a 4-FSK message. Change the simulation so fc=7.0386 MHz and FRQ will step from 7.04010 MHz over the exact range of values of a legal WSPR transmission (i.e. 4-FSK with a 1.4648 Hz tone separation). Make an fft plot of I_out and n005 similar to the one above. Explain the changes you made in your lab book. Note that I have had issues with LTSpice on the M1 Mac crashing but found that I could get it to work by changing the ```.step param FRQ``` command.
 
 ### Question 2 - Tayloe Detector Measurement (40%)
+First consider which jumpers in J1 need to be in-place to connect the 
+Tayloe detector to the appropriate circuitry.
 
 Now test your PCB by using a function generator with sine wave inputs to MIXIN at 7.005 MHz, 7.006 MHz and 7.007 MHz and show that it can mix with a carrier of 7 MHz to achieve baseband outputs at 5, 6 and 7 kHz on Qout. To do this you will need to reprogram your Si5351 to have a 7 MHz output. 
 Describe the expected behaviour in your lab book and include screen shots to demonstrate what you measured. The  screen shots should include:
