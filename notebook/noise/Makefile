@@ -1,3 +1,3 @@
-all:	enbw.tex opampnoise.tex 
+all:	enbw.pdf opampnoise.pdf 
 
 include ../Makefile

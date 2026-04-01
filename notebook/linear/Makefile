@@ -1,3 +1,3 @@
-all:	bode.tex singlepolebode.tex
+all:	singlepolebode.pdf threepoleopamp.pdf
 
 include ../Makefile

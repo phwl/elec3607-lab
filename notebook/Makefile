@@ -5,3 +5,5 @@
 %.pdf : %.ipynb
 	jupyter nbconvert --to pdf $<
 
+clean:
+	-rm -rf *.pdf *.md *.tex *_files
