@@ -1,8 +1,8 @@
 CC=gcc
 
-CFLAGS= -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
-LDFLAGS = -L/usr/local/lib 
-LIBS = -lfftw3 -lm 
+CFLAGS= -I. -I/usr/local/include -Wall -Wextra -std=c99 -pedantic -O3 -ffast-math
+LDFLAGS= -L/usr/local/lib
+LIBS= /usr/lib/libfftw3.so.3.6.10 /usr/lib/libfftw3_threads.so.3.6.10 -lm -lpulse-simple -lpulse
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
