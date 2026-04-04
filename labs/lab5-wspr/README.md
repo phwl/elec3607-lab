@@ -120,11 +120,10 @@ We suggest you do this by:
 ```C
 	static const pa_sample_spec ss
 ```
- 3. Think about how to drop it into readwavfile()
- 4. You will need to change the command line handling in ```wsprd.c``` (as there is no wavfile) 
+ 3. Call ```parec()``` from ```readwavfile()``` in ```wsprd.c```.
+ 4. Change the command line handling in ```wsprd.c``` (as there is no wavfile) 
  5. Think carefully how to test it (don’t just hope it works first go as it won’t)!
  6. Don’t rush - it takes twice as long if you do!
-
 
 Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
 ```bash
