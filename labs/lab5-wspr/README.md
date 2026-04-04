@@ -107,8 +107,26 @@ Study what this program does as you will need it for the following question.
 
 ## Question 4 - Modifying wsprcan/wsprd.c (60\%)
 
+
 Using the ```parecfile/parecfile.c``` code as an example,
-modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file (do this in a copy of the wsprcan directory called pa-wsprcan that can be made using ```cp -r wsprcan pa-wsprcan```). Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
+modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of the file (do this in a copy of the wsprcan directory called pa-wsprcan that can be made using ```cp -r wsprcan pa-wsprcan```). 
+
+We suggest you do this by:
+ 1. creating the following function in pa-wsprcan/parec.c (this decouples the pulseaudio stuff from wspr)
+```C
+	int parec(char *fnamep[], short *pabuf, int npoints)
+```
+ 2. Think about how to set the format, rate and channels in  
+```C
+	static const pa_sample_spec ss
+```
+ 3. Think about how to drop it into readwavfile()
+ 4. You will need to change the command line handling in ```wsprd.c``` (as there is no wavfile) 
+ 5. Think carefully how to test it (don’t just hope it works first go as it won’t)!
+ 6. Don’t rush - it takes twice as long if you do!
+
+
+Demonstrate that your program works by playing a file in the background and decoding it with your modified program. The supplied script, wspr-test does this for you:
 ```bash
 petalinux-8GB:~/elec3607-lab-main/labs/lab5-wspr$ cat wspr-test
 #!/bin/bash
