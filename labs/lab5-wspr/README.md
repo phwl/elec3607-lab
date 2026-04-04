@@ -75,7 +75,7 @@ Cookie: d24c:3937
 ## Question 2 - Compiling wsprd (10\%)
 A brief description of WSPR is available at
 <https://www.arrl.org/files/file/History/History%20of%20QST%20Volume%201%20-%20Technology/QS11-2010-Taylor.pdf>.
-```wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command 
+```wsprcan/k9an-wsprd``` is a program that decodes baseband wspr files (i.e. wspr files that have been downconverted). You can compile with the following ```make``` command 
 
 ```bash
 petalinux-8GB:~/elec3607-lab-main/labs/lab5-wspr$ make wspr
