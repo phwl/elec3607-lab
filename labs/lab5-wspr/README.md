@@ -29,26 +29,16 @@ Cookie: d24c:3937
 ```
 Note that the above tells us that the Default Sink and Source are set to the USB sound card.
 
-We are going to create a virtual audio sink which is mono and 12000 samples a second. This is done using:
-```bash
-petalinux-8GB:~$ pactl load-module module-null-sink sink_name=MySink format=s16le channels=1 rate=12000
-18
-```
-
 Now let's list the sources and sinks:
 ```bash
 petalinux-8GB:~$ pactl list short sources
 0       alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo.monitor        module-alsa-card.c      s16le 2ch 48000Hz       SUSPENDED
 1       alsa_input.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo module-alsa-card.c      s16le 2ch 48000Hz       SUSPENDED
 2       alsa_output.platform-xlnx_snd_card.1.auto.stereo-fallback.monitor       module-alsa-card.c      s24-32le 2ch 44100Hz    SUSPENDED
-3       MySink.monitor  module-null-sink.c      s16le 1ch 12000Hz       SUSPENDED
 petalinux-8GB:~$ pactl list short sinks
 0       alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo        module-alsa-card.c      s16le 2ch 48000Hz       SUSPENDED
 1       alsa_output.platform-xlnx_snd_card.1.auto.stereo-fallback       module-alsa-card.c      s24-32le 2ch 44100Hz    SUSPENDED
-2       MySink  module-null-sink.c      s16le 1ch 12000Hz       SUSPENDED
 ```
-You can see that MySink.monitor and MySink are available. Note the sources and sinks are SUSPENDED but will change to Running when in use.
-
 Do the following and explain the purpose of these commands which utilise
 a very powerful feature of pulseaudio.
 ```bash
