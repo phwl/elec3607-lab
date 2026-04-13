@@ -104,7 +104,7 @@ modify ```wsprcan/wsprd.c``` so that it takes input from pulseaudio instead of t
 We suggest you do this by:
  1. creating the following function in pa-wsprcan/parec.c (this decouples the pulseaudio stuff from wspr)
 ```C
-	int parec(char *fnamep[], short *pabuf, int npoints)
+	int parec(short *pabuf, int npoints)
 ```
  2. Think about how to set the format, rate and channels in  
 ```C
