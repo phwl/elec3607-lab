@@ -85,7 +85,7 @@ rm mono.wav
 In your lab book, explain what is being done by this program. Also explain the role of the ```sox``` command.
 
 ## Question 3 -  Compiling ```parec``` (10\%)
-In the parecfile directory, ```parecfile.c``` is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/).
+In the parecfile directory, ```parecfile.c``` is a program that records some data via pulseaudio, and then writes it to stdout. As its name suggests, the pulseaudio simple interface is very simple and its documentation is available [here](https://freedesktop.org/software/pulseaudio/doxygen/simple_8h.html).
 
 ```bash
 petalinux-8GB:~/elec3607-lab-main/labs/lab5-wspr$ cd parecfile
