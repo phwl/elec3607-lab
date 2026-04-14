@@ -8,6 +8,7 @@ First cd to your ```elec3607-lab``` directory and type ```git pull``` to ensure 
 
 ## Question 1 -  Pulseaudio (10\%)
 
+Plug a USB sound card into the USB input of your AUP-ZU3 board.
 You can check that pulseaudio is working with ```pactl```:
 ```
 petalinux-8GB:~$ pactl info
