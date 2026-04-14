@@ -40,6 +40,7 @@ petalinux-8GB:~$ pactl list short sinks
 0       alsa_output.usb-Plugable_Plugable_USB_Audio_Device_000000000000-00.analog-stereo        module-alsa-card.c      s16le 2ch 48000Hz       SUSPENDED
 1       alsa_output.platform-xlnx_snd_card.1.auto.stereo-fallback       module-alsa-card.c      s24-32le 2ch 44100Hz    SUSPENDED
 ```
+In PulseAudio, analog-stereo.monitor refers to a specialized audio source that captures the audio currently being played through the "Analog Stereo" output, allowing you to record or stream what you hear.
 Do the following and explain the purpose of these commands which utilise
 a very powerful feature of pulseaudio.
 ```bash
