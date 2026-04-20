@@ -16,11 +16,11 @@ Now integrate your WSPR decoding software with the hardware. You will need to fi
 
 Think about how you should use ```pactl set-default-source``` to set it to the USB sound card microphone. Then use the WSPR decoder that you have developed to decode WSPR packets. Note that transmissions start every 2 minutes and you need to have your Linux system clock set properly and use ```wsprwait``` for synchronisation.
 
-We will be running a wspr beacon in the lab and a correct output will look something like this:
+We will be running a wspr beacon in the lab (unfortunately it only transmits once every 8 minutes) and a correct output will look something like this:
 ```
 elec3607@raspberrypi:~/elec3607-lab/labs/lab4-wspr $ ./wsprwait
 Executing wspr_decode Tue 15 Apr 15:38:00 AEST 2025
-mode -24 -1.1   0.001473 -1  VX2TXH QF56  7 
+mode -24 -1.1   0.001473 -1  VK2APL QF56  7 
 <DecodeFinished,data/wf-1744695594.wav,1>
 ```
 
