@@ -29,4 +29,4 @@ mode -24 -1.1   0.001473 -1  VK2APL QF56  7
 This part of the lab is optional and should be only be attempted if you
 can finish the other two parts before the deadline. Using [these
 toroid ferrite cores](https://au.element14.com/fair-rite/5961001101/ferrite-core-toroid-61/dp/1781375) and based on [this similar design](BPF-40m.pdf) (that design uses a different toroid core), build and test the band pass filter (BPF) circuit
-on the ELEC3608SDR board. Create your own methodology to test the BPF and test whether or note it improves the ability of your WSPR receiver in part 2 to decoder WSPR signals. Explain why the answer to this question will be dependent on the prevailing radio frequency environment.
+on the ELEC3608SDR board. Create your own methodology to test the BPF (a spectrum analyzer with tracking generator will be available) and test whether or note it improves the ability of your WSPR receiver in part 2 to decoder WSPR signals. Explain why the answer to this question will be dependent on the prevailing radio frequency environment.
