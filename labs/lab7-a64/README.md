@@ -178,6 +178,3 @@ When doing this exercise, it is unlikely your program will work first time so us
 From Part 2, you should have noticed that printdec() prints the string in the reverse order. Modify your assembly language program to fix this bug. Do this by buffering the data inside printdec() and then printing out the buffer in reverse.  
 Hint: it might be easier to do it in C first, study the generated assembly code and then write your own version.
 
-### Part 4 - Optional (20%)
-This part gives you the opportunity to get bonus marks and very challenging. Annotate the
-part that computes ```n % 10``` and ```n / 10``` giving a clear description of what it is doing.
