@@ -4,8 +4,7 @@
 
 Download the [updated image](https://unisyd-my.sharepoint.com/:u:/g/personal/ruilin_wu_sydney_edu_au/IQDTleQwFkoDSrwWrWZg2J5UASNUCj9ZX0MyfdK-ngxV7dQ?e=lOojAl) and follow the steps in lab1 to burn the image.
 
-<span style="color:red">
-**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing.** </span>
+**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing.** 
 
 After booting the new image, check GDB with:
 ```bash
