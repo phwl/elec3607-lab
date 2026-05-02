@@ -1,5 +1,18 @@
 # A64 Assembly Language (Stack Frames and Function Calls)
 
+## New Image with GDB Tools
+
+Download the [updated image](https://unisyd-my.sharepoint.com/:u:/g/personal/ruilin_wu_sydney_edu_au/IQDTleQwFkoDSrwWrWZg2J5UASNUCj9ZX0MyfdK-ngxV7dQ?e=lOojAl) and follow the steps in lab1 to burn the image.
+
+<span style="color:red">
+Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing.
+</span>
+
+After booting the new image, check GDB with:
+```bash
+gdb --version
+```
+
 ## Introduction
 The goals of this lab are:
 
@@ -163,7 +176,7 @@ Using gdb ([manual here](https://sourceware.org/gdb/current/onlinedocs/gdb.html/
 Single step the assembly language using gdb with the ```nexti``` command
 and understand the operation of the program. Show the sequence of commands that you need in gdb to step ```_printdec``` and display the register values.
 
-![](gdbtui.png)
+![](gdbtui_aupzu3.png)
 
 Create an annotated version of ```printdec.s```. Put this in your lab book and make sure you explain the correspondence with each line of C. You can remove the .cfi and .loc directives in your answer as these are used to help the debugger relate the code back to the original C.
 
