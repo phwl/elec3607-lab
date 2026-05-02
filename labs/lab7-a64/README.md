@@ -2,9 +2,9 @@
 
 ## New Image with GDB Tools
 
-Download the [updated image](https://unisyd-my.sharepoint.com/:u:/g/personal/ruilin_wu_sydney_edu_au/IQDTleQwFkoDSrwWrWZg2J5UASNUCj9ZX0MyfdK-ngxV7dQ?e=lOojAl) and follow the steps in lab1 to burn the image.
+Download the [updated image](to be updated) and follow the steps in lab1 to burn the image.
 
-**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing.** 
+**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing. This new image should support all ** 
 
 After booting the new image, check GDB with:
 ```bash
