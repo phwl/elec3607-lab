@@ -4,7 +4,7 @@
 
 Download the [updated image](to be updated) and follow the steps in lab1 to burn the image.
 
-**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing. This new image should support all ** 
+**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one.** 
 
 After booting the new image, check GDB with:
 ```bash
