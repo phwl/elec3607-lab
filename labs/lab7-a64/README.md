@@ -2,9 +2,9 @@
 
 ## New Image with GDB Tools
 
-Download the [updated image](to be updated) and follow the steps in lab1 to burn the image.
+**Warning: Flashing the image below will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one.** 
 
-**Warning: Flashing this image will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one.** 
+Download <https://unisyd-my.sharepoint.com/:u:/g/personal/philip_leong_sydney_edu_au/IQCxjiFf3vb4SIkNqp0JavSiAb-yiYmM2oTAY2nuPLdMWgk?e=ZjLHOR> and follow the steps in lab1 to burn the image.
 
 After booting the new image, check GDB with:
 ```bash
