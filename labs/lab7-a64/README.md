@@ -4,9 +4,9 @@
 
 **Warning: Flashing the image below will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one. It also uses a larger partition so should fix any disk space problems.** 
 
-Download <https://unisyd-my.sharepoint.com/:u:/g/personal/philip_leong_sydney_edu_au/IQCxjiFf3vb4SIkNqp0JavSiAb-yiYmM2oTAY2nuPLdMWgk?e=ZjLHOR> and follow the steps in lab1 to burn the image.
+Download <https://unisyd-my.sharepoint.com/:u:/g/personal/philip_leong_sydney_edu_au/IQCxjiFf3vb4SIkNqp0JavSiAb-yiYmM2oTAY2nuPLdMWgk?e=ZjLHOR> and burn the image to your card using Etcher (as you did in Lab 1)..
 
-After booting the new image, check GDB with:
+After booting the new image, boot, login and check GDB with:
 ```bash
 gdb --version
 ```
