@@ -2,7 +2,7 @@
 
 ## New Image with GDB Tools
 
-**Warning: Flashing the image below will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one.** 
+**Warning: Flashing the image below will erase all data on the storage card. Please back up your code and any important files before flashing. The new image should support be backward compatible with the old one. It also uses a larger partition so should fix any disk space problems.** 
 
 Download <https://unisyd-my.sharepoint.com/:u:/g/personal/philip_leong_sydney_edu_au/IQCxjiFf3vb4SIkNqp0JavSiAb-yiYmM2oTAY2nuPLdMWgk?e=ZjLHOR> and follow the steps in lab1 to burn the image.
 
